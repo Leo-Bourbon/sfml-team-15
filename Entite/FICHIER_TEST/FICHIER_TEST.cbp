@@ -2,17 +2,18 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="FICHIER_TEST" />
+		<Option title="SemaineProjet" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/FICHIER_TEST" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/SemaineProjet" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
@@ -21,12 +22,13 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/FICHIER_TEST" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/SemaineProjet" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -38,7 +40,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:/SFML/include" />
+			<Add directory="$(#sfml.include)" />
 		</Compiler>
 		<Linker>
 			<Add library="mingw32" />
@@ -46,10 +48,18 @@
 			<Add library="gdi32" />
 			<Add library="winmm" />
 			<Add library="dxguid" />
-			<Add directory="C:/SFML/lib" />
+			<Add directory="$(#sfml.lib)" />
 		</Linker>
 		<Unit filename="cb.bmp" />
+		<Unit filename="fonctions.cpp" />
+		<Unit filename="fonctions.h" />
+		<Unit filename="include/Entite.h" />
+		<Unit filename="include/EntiteVivante.h" />
+		<Unit filename="include/Joueur.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Entite.cpp" />
+		<Unit filename="src/EntiteVivante.cpp" />
+		<Unit filename="src/Joueur.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
