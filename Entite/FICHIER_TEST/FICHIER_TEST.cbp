@@ -53,10 +53,12 @@
 		<Unit filename="cb.bmp" />
 		<Unit filename="fonctions.cpp" />
 		<Unit filename="fonctions.h" />
+		<Unit filename="include/Ennemi.h" />
 		<Unit filename="include/Entite.h" />
 		<Unit filename="include/EntiteVivante.h" />
 		<Unit filename="include/Joueur.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Ennemi.cpp" />
 		<Unit filename="src/Entite.cpp" />
 		<Unit filename="src/EntiteVivante.cpp" />
 		<Unit filename="src/Joueur.cpp" />
