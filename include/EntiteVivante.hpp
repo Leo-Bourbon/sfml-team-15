@@ -25,6 +25,7 @@ public:
     bool mort;
     int vie;
     Vector2f deplacement;
+    Vector2f deplacementProjectile;
 
 protected:
 
