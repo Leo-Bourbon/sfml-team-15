@@ -59,8 +59,6 @@ int main()
     Bouton* b2;
     Bouton* b3;
     Bouton* b4;
-    Bouton* b5;
-    Bouton* b6;
     Bouton* b7;
 
     std::function<void (Ecran&)> myFunction = [](Ecran& e)
