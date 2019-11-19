@@ -154,7 +154,7 @@ int main()
             break;
         case Jeu:
             //Code au demarrage de l'ecran de jeu
-            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
+            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
 
             joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
             joueur->perso1 = texturePersHaut;
@@ -198,7 +198,7 @@ int main()
                 // Clear screen
                 app.clear();
 
-                ennemi2->afficher(app);
+                ennemi->afficher(app);
                 joueur->afficher(app);
 
                 app.display();
