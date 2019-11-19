@@ -1,6 +1,5 @@
 #ifndef JOUEUR_HPP_INCLUDED
 #define JOUEUR_HPP_INCLUDED
-#include <SFML/Graphics.hpp>
 #include "EntiteVivante.hpp"
 
 class Joueur : public EntiteVivante

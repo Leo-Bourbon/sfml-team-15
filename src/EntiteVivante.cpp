@@ -11,15 +11,15 @@ EntiteVivante::~EntiteVivante()
 
 void EntiteVivante::subitDegat(int quantite)
 {
-    vie -= quantite;
+    this->vie-=quantite;
 
-    if(vie<=0)
+    if(this->vie<=0)
         mort=true;
 }
 
 void EntiteVivante::recoitSoin(int quantite)
 {
-    vie+=quantite;
+    this->vie+=quantite;
 }
 
 void EntiteVivante::attaque(EntiteVivante cible, int degats)
@@ -34,13 +34,11 @@ int EntiteVivante::getPV()
 
 int EntiteVivante::collision(Entite* entite)
 {
-    FloatRect boiteEnglobante = this->forme.getGlobalBounds();
-    FloatRect boiteEnglobanteEntite = entite->forme.getGlobalBounds();
 
-    if (boiteEnglobante.intersects(boiteEnglobanteEntite))
-    {
+    FloatRect boiteEntite1 = this->forme.getGlobalBounds();
+    FloatRect boiteEntite2 = entite->forme.getGlobalBounds();
+
+    if(boiteEntite1.intersects(boiteEntite2))
         return 1;
-    } else {
-        return 0;
-    }
+    else return 0;
 }

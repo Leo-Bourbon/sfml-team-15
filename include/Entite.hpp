@@ -22,6 +22,8 @@ public:
     Vector2f getTaille();
     void     setTaille(Vector2f newTaille);
 
+    RectangleShape forme;
+
 protected:
     Vector2f position;
     Vector2f taille;

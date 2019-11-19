@@ -1,8 +1,12 @@
 #include "Bouton.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+
+
 using namespace sf;
 Bouton::Bouton() {}
+
+
 Bouton::Bouton(Vector2f pos, Vector2f taille, Texture& arr)
 {
     this->taille = taille;
@@ -33,8 +37,8 @@ Bouton::Bouton(Vector2f pos, Vector2f taille, Texture& arr, std::string& label)
     text.setString(contenue);
     text.setCharacterSize(30);
     text.setColor(Color::White);
-    text.setOrigin(text.getLocalBounds().width/2,text.getGlobalBounds().height/2);
-    text.setPosition(position.x + taille.x / 2, position.y + taille.y /2);
+    text.setOrigin(text.getLocalBounds().width/2,text.getLocalBounds().height/2);
+    text.setPosition(position.x-30, position.y-30);
 }
 void Bouton::AfficherBouton(sf::Font& Police, sf::RenderWindow& fen)
 {
@@ -47,9 +51,9 @@ bool Bouton::estAppuye(Vector2f posSouris,std::vector<Bouton*> liste,int i)
 {
 
 
-        //std::cout<<liste[i];
-        if(liste[i]->forme.getLocalBounds().contains(posSouris))
-        {
+    //std::cout<<liste[i];
+    if(liste[i]->forme.getGlobalBounds().contains(posSouris))
+    {
 
             //printf("%i",1);
             test = 1;
@@ -61,11 +65,10 @@ bool Bouton::estAppuye(Vector2f posSouris,std::vector<Bouton*> liste,int i)
            // printf("%i",0);
             test = 0;
 
-        }
-        return test;
+    }
+    return test;
 
-
-
+    printf("\n",1);
 }
 
 Bouton::~Bouton()
