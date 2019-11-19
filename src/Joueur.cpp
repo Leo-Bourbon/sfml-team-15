@@ -1,5 +1,6 @@
 #include "Joueur.hpp"
-#define PAS 2
+#define PAS 1
+#include <SFML/Graphics.hpp>
 
 Joueur::Joueur()
 {
@@ -11,25 +12,24 @@ Joueur::~Joueur()
     //dtor
 }
 
-void Joueur::deplacer()
-{
+void Joueur::deplacer() {
     if (Keyboard::isKeyPressed(Keyboard::Up))
     {
-        this->deplacement.y -= PAS;
+        deplacement.y = -PAS;
     }
     if (Keyboard::isKeyPressed(Keyboard::Right))
     {
-        this->deplacement.x += PAS;
+        deplacement.x = PAS;
     }
     if (Keyboard::isKeyPressed(Keyboard::Down))
     {
-        this->deplacement.y += PAS;
+        deplacement.y = PAS;
     }
     if (Keyboard::isKeyPressed(Keyboard::Left))
     {
-        this->deplacement.x -= PAS;
+        deplacement.x = -PAS;
     }
-
+    printf("%i\n", this->deplacement.x);
     this->forme.move(this->deplacement);
-    this->deplacement = Vector2f(0,0);
+    deplacement = Vector2f(0, 0);
 }

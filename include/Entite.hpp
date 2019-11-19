@@ -24,7 +24,6 @@ public:
     RectangleShape forme;
 
 protected:
-
     Vector2f position;
     Vector2f taille;
     Vector2f deplacement;

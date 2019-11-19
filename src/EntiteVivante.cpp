@@ -22,9 +22,9 @@ void EntiteVivante::recoitSoin(int quantite)
     this->vie+=quantite;
 }
 
-void EntiteVivante::attaque(EntiteVivante e)
+void EntiteVivante::attaque(EntiteVivante cible, int degats)
 {
-
+    cible.subitDegat(degats);
 }
 
 int EntiteVivante::getPV()

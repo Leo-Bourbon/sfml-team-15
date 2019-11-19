@@ -16,7 +16,7 @@ int main()
     Ecran e = Principal;
 
     Font font;
-    if (!font.loadFromFile("arial.ttf"))
+    if (!font.loadFromFile("assets\\arial.ttf"))
         return EXIT_FAILURE;
 
     // Create the main window
@@ -28,15 +28,16 @@ int main()
     // Load a sprite to display
 
     Texture cb;
-    if (!cb.loadFromFile("cb.bmp"))
+    if (!cb.loadFromFile("assets\\cb.bmp"))
         return EXIT_FAILURE;
+
     /* variable interfaces*/
     Texture perso;
-    if (!perso.loadFromFile("perso.png"))
+    if (!perso.loadFromFile("assets\\perso.png"))
         return EXIT_FAILURE;
 
     Texture texture;
-    if (!texture.loadFromFile("button.png"))
+    if (!texture.loadFromFile("assets\\button.png"))
         return EXIT_FAILURE;
     Sprite sprite(texture);
     std::string debut = "Jouer";
@@ -50,6 +51,7 @@ int main()
     /* variable jerem*/
     Ennemi* ennemi2;
     /* */
+     Joueur* joueur;
 
     Joueur* joueur1;
 
@@ -121,16 +123,18 @@ int main()
         case Jeu:
             //Code au demarrage de l'ecran de jeu
 
-            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, S);
-            joueur1 = new Joueur(Vector2f(0,0), Vector2f(200,200), 20, false);
-            joueur1->setTexture(perso);
+            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
+            joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
+            joueur->setTexture(perso);
 
             while (app.isOpen() && e==Jeu)
             {
+                joueur->deplacer();
+                if (joueur->collision(ennemi2) == 1) {
+                    joueur->subitDegat(ennemi2->degats);
+                }
 
-                joueur1->deplacer();
-
-                printf("%i", joueur1->collision(ennemi2));
+                printf("%i", joueur->vie);
 
                 // Process events
                 Event event;
@@ -145,7 +149,7 @@ int main()
                 app.clear();
 
                 ennemi2->afficher(app);
-                joueur1->afficher(app);
+                joueur->afficher(app);
 
                 app.display();
             }
