@@ -18,12 +18,14 @@ public:
     void subitDegat(int quantite);
     void recoitSoin(int quantite);
     int getPV();
+    int collision(Entite* entite);
 
     int degats;
-
-protected:
     int vie;
     bool mort;
+
+protected:
+
 
 private:
 
