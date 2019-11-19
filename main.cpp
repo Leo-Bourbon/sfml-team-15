@@ -30,11 +30,8 @@ int main()
     Texture cb;
     if (!cb.loadFromFile("cb.bmp"))
         return EXIT_FAILURE;
-    /* variable interfaces*/
-    Texture perso;
-    if (!perso.loadFromFile("perso.png"))
-        return EXIT_FAILURE;
 
+    /* variable interfaces*/
     Texture perso;
     if (!perso.loadFromFile("perso.png"))
         return EXIT_FAILURE;
@@ -126,7 +123,7 @@ int main()
         case Jeu:
             //Code au demarrage de l'ecran de jeu
 
-            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, S);
+            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
             joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
             joueur->setTexture(perso);
 

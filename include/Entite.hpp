@@ -12,7 +12,6 @@ public:
     Entite(Vector2f position, Vector2f taille);
     virtual ~Entite();
 
-    RectangleShape forme;
     void afficher(RenderWindow &window);
     void setTexture(Texture &texture);
     virtual void deplacer();
