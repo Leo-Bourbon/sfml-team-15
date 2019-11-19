@@ -10,6 +10,6 @@
 #include <vector>
 
 std::vector<Salle> lireSalles(std::string listeSalles);
-Salle lireSalle(std::ifstream &fichier);
+
 
 #endif // CHARGEMENTFICHIER_HPP_INCLUDED
