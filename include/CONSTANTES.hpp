@@ -11,7 +11,7 @@ enum Ecran
 
 enum TypeEntite
 {
-    Joueur, Sol, Trou, Rocher, CSouris, Slime
+    Joueur, Sol, Trou, Rocher, CSouris, S
 };
 
 #endif // CONSTANTES_HPP_INCLUDED
