@@ -3,14 +3,16 @@
 #include "Bouton.h"
 #include <SFML/Graphics.hpp>
 
+
 using namespace sf;
 class Gestionnaire
 {
 public:
     Gestionnaire();
-    void CreateBoutton(Vector2f pos, Vector2f taille, Texture& arr, std::string& label);
-    void actualiser(RenderWindow &app);
+    Bouton* CreateBoutton(Vector2f pos, Vector2f taille, Texture& arr, std::string& label);
+    void actualiser(RenderWindow &app, Ecran& e);
     void AfficherBouttons(sf::Font& Police,sf::RenderWindow& fen);
+    void reset();
     virtual ~Gestionnaire();
 
 protected:
@@ -20,4 +22,3 @@ private:
 };
 
 #endif // GESTIONNAIRE_H
-

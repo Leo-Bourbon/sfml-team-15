@@ -52,9 +52,22 @@
 		</Linker>
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Bouton.h" />
+		<Unit filename="include/CONSTANTES.hpp" />
+		<Unit filename="include/Ennemi.hpp" />
+		<Unit filename="include/Entite.hpp" />
+		<Unit filename="include/EntiteVivante.hpp" />
+		<Unit filename="include/Joueur.hpp" />
+		<Unit filename="include/Slime.hpp" />
+		<Unit filename="include/fonctionsEnnemi.hpp" />
 		<Unit filename="include/gestionnaire.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Bouton.cpp" />
+		<Unit filename="src/Ennemi.cpp" />
+		<Unit filename="src/Entite.cpp" />
+		<Unit filename="src/EntiteVivante.cpp" />
+		<Unit filename="src/Joueur.cpp" />
+		<Unit filename="src/Slime.cpp" />
+		<Unit filename="src/fonctionsEnnemi.cpp" />
 		<Unit filename="src/gestionnaire.cpp" />
 		<Extensions>
 			<code_completion />
