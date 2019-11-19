@@ -7,8 +7,10 @@ class Ennemi : public EntiteVivante
 {
 public:
     Ennemi();
-    Ennemi(Vector2f position, Vector2f taille, int vieDepart, bool estMort) : EntiteVivante(position, taille, vieDepart, estMort){}
+    Ennemi(Vector2f position, Vector2f taille, int vieDepart, bool estMort) : EntiteVivante(position, taille, vieDepart, estMort) {}
     virtual ~Ennemi();
+
+    Texture slime;
 
 protected:
 

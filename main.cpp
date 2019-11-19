@@ -27,15 +27,8 @@ int main()
     Vector2f tailleBouton(tailleFenetre.x*0.25,tailleFenetre.y*0.15);
 
     // Load a sprite to display
-    Texture cb;
-    if (!cb.loadFromFile("assets\\cb.bmp"))
-        return EXIT_FAILURE;
 
-    Texture perso;
-    if (!perso.loadFromFile("assets\\perso-1.png"))
-        return EXIT_FAILURE;
     /* variable interfaces*/
-
 
     Texture texture;
 
@@ -89,6 +82,11 @@ int main()
 
     // variable Jerem
     Ennemi* ennemi;
+
+    /*Texture slime*/
+    Texture textureSlime;
+    if (!textureSlime.loadFromFile("assets\\slime.png"))
+        return EXIT_FAILURE;
 
     // variables Mams
     Joueur* joueur;
@@ -154,16 +152,14 @@ int main()
             break;
         case Jeu:
             //Code au demarrage de l'ecran de jeu
-            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
+            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(150,150), textureSlime, Slimy);
 
             joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
             joueur->perso1 = texturePersHaut;
             joueur->perso2 = texturePersGauche;
             joueur->perso3 = texturePersDroite;
             joueur->perso4 = texturePersBas;
-
-
-            joueur->setTexture(perso);
+            joueur->setTexture(texturePersHaut);
 
             while (app.isOpen() && e==Jeu)
             {

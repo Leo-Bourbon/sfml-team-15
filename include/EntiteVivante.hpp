@@ -21,9 +21,10 @@ public:
     int collision(Entite* entite);
     bool estMort();
 
-    int degats;
-    bool mort;
     int vie;
+    bool mort;
+    int degats;
+
     Vector2f deplacement;
 
 protected:
