@@ -1,5 +1,5 @@
-#ifndef SALLE_H
-#define SALLE_H
+#ifndef SALLE_HPP_INCLUDED
+#define SALLE_HPP_INCLUDED
 
 #include "CONSTANTES.hpp"
 
@@ -24,4 +24,4 @@ protected:
 private:
 };
 
-#endif // SALLE_H
+#endif // SALLE_HPP_INCLUDED

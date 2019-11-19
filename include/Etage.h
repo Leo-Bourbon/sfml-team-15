@@ -1,7 +1,8 @@
 #ifndef ETAGE_H
 #define ETAGE_H
 
-#include "Salle.h"
+#include "Salle.hpp"
+#include "Entite.hpp"
 #include <vector>
 
 class Etage

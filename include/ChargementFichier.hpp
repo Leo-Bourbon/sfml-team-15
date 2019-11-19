@@ -6,7 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include "CONSTANTES.hpp"
-#include "Salle.h"
+#include "Salle.hpp"
 #include <vector>
 
 std::vector<Salle> lireSalles(std::string listeSalles);

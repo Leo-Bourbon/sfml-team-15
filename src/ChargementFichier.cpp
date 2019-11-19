@@ -1,4 +1,5 @@
 #include "ChargementFichier.hpp"
+#include "Salle.hpp"
 
 std::map<char, TypeEntite> charToType(
 {
