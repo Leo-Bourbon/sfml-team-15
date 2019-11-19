@@ -10,6 +10,7 @@
 #include "fonctionsEnnemi.hpp"
 #include "functional"
 #include "functionsImages.hpp"
+#include "fonctionsJoueur.hpp"
 
 using namespace sf;
 int main()
@@ -42,7 +43,7 @@ int main()
 
     if (!background.loadFromFile("assets\\background.png"))
         return EXIT_FAILURE;
-        Texture coeur;
+    Texture coeur;
 
     if (!coeur.loadFromFile("assets\\coeur.png"))
         return EXIT_FAILURE;
@@ -164,21 +165,16 @@ int main()
             ennemi = creerEnnemi(Vector2f(50,50), Vector2f(150,150), textureSlime, Slimy);
 
             /* Création du personnage */
-            joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
-            joueur->setTexture(texturePersBas);
-            joueur->perso1 = texturePersHaut;
-            joueur->perso2 = texturePersGauche;
-            joueur->perso3 = texturePersDroite;
-            joueur->perso4 = texturePersBas;
-            joueur->setTexture(texturePersHaut);
+            joueur = creerJoueur(Vector2f(500, 500), Vector2f(200, 200), texturePersBas, texturePersGauche, texturePersDroite, texturePersHaut);
 
             /*Création de la flèche*/
             fleche = new Fleche(Vector2f(300, 100), Vector2f(50, 50), 1, false);
             fleche->setTexture(textureFleche);
 
-            while (app.isOpen() && e==Jeu)
+            while (app.isOpen() && e == Jeu)
             {
-                if (Keyboard::isKeyPressed(Keyboard::Space)){
+                if (Keyboard::isKeyPressed(Keyboard::Space))
+                {
                     fleche->deplacer(joueur->vecteurProjectile);
                 }
 

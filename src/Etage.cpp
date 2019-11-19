@@ -1,6 +1,6 @@
 #include "Etage.h"
 
-Etage::Etage(std::vector<Salle> listeSalles)
+Etage::Etage(std::vector<Salle> listeSalles, Joueur& joueur)
 {
     genererEtage();
 }
@@ -9,6 +9,12 @@ Etage::~Etage()
 {
     //dtor
 }
+
+void handleInput(sf::Event e){
+};
+
+void update(){
+};
 
 void Etage::genererEtage()
 {
