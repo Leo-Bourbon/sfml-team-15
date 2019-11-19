@@ -7,14 +7,20 @@
 
 #define LARGEUR_SALLES 3/4
 #define HAUTEUR_SALLES 2/3
+
 enum Ecran
 {
-    Principal, Jeu, Fin,Parametre, Instruction,Quitter
+    Principal, Jeu, Fin, Parametre, Instruction, Quitter
 };
 
 enum TypeEntite
 {
-    Personnage = 0, Sol = 1, Trou = 2, Rocher = 3, CSouris = 4, Slimy = 5
+    Personnage = 0, Sol = 1, Trou = 2, Rocher = 3, CSouris = 4, Slimy = 5, Item = 6
+};
+
+enum Directions
+{
+    Nord = 0, Sud = 1, Est = 2, Ouest = 3
 };
 
 #endif // CONSTANTES_HPP_INCLUDED

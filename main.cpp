@@ -26,9 +26,6 @@ int main()
     Vector2f tailleBouton(tailleFenetre.x*0.25,tailleFenetre.y*0.15);
 
     // Load a sprite to display
-    Texture cb;
-    if (!cb.loadFromFile("assets\\cb.bmp"))
-        return EXIT_FAILURE;
 
     /* variable interfaces*/
 
@@ -45,6 +42,10 @@ int main()
 
     if (!background.loadFromFile("assets\\background.png"))
         return EXIT_FAILURE;
+        Texture coeur;
+
+    if (!coeur.loadFromFile("assets\\coeur.png"))
+        return EXIT_FAILURE;
 
     std::string debut = "Jouer";
     std::string para = "Paramètres";
@@ -57,8 +58,6 @@ int main()
     Bouton* b2;
     Bouton* b3;
     Bouton* b4;
-    Bouton* b5;
-    Bouton* b6;
     Bouton* b7;
 
     std::function<void (Ecran&)> myFunction = [](Ecran& e)
@@ -84,6 +83,11 @@ int main()
 
     // variable Jerem
     Ennemi* ennemi;
+
+    /*Texture slime*/
+    Texture textureSlime;
+    if (!textureSlime.loadFromFile("assets\\slime.png"))
+        return EXIT_FAILURE;
 
     // variables Mams
     Joueur* joueur;
@@ -154,7 +158,7 @@ int main()
             break;
         case Jeu:
             //Code au demarrage de l'ecran de jeu
-            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
+            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(150,150), textureSlime, Slimy);
 
             /* Création du personnage */
             joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
@@ -163,6 +167,7 @@ int main()
             joueur->perso2 = texturePersGauche;
             joueur->perso3 = texturePersDroite;
             joueur->perso4 = texturePersBas;
+            joueur->setTexture(texturePersHaut);
 
             /*Création de la flèche*/
             fleche = new Fleche(Vector2f(300, 100), Vector2f(50, 50), 1, false);
@@ -204,7 +209,8 @@ int main()
 
                 // Clear screen
                 app.clear();
-
+                 creeRectangle(Vector2f((tailleFenetre.x-(tailleFenetre.x*3/4))/2,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(tailleFenetre.x*3/4,tailleFenetre.y*2/3),app);
+                updateVie(Vector2f(10,10), Vector2f(tailleFenetre.x * 5/15 ,tailleFenetre.y*1/15), coeur,app,joueur);
                 ennemi->afficher(app);
                 joueur->afficher(app);
                 fleche->afficher(app);

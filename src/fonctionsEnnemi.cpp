@@ -14,7 +14,6 @@ Ennemi* creerEnnemi(Vector2f position, Vector2f taille, Texture &texture, TypeEn
         ennemi = new Slime(position, taille, 10, false);
         ennemi->setTexture(texture);
         ennemi->degats = 10;
-        ennemi->setTexture(texture);
         break;
     }
     return ennemi;
