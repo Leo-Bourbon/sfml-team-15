@@ -10,6 +10,7 @@
 #include "fonctionsEnnemi.hpp"
 #include "functional"
 #include "functionsImages.hpp"
+#include "fonctionsJoueur.hpp"
 
 using namespace sf;
 int main()
@@ -42,7 +43,7 @@ int main()
 
     if (!background.loadFromFile("assets\\background.png"))
         return EXIT_FAILURE;
-        Texture coeur;
+    Texture coeur;
 
     if (!coeur.loadFromFile("assets\\coeur.png"))
         return EXIT_FAILURE;
@@ -161,21 +162,16 @@ int main()
             ennemi = creerEnnemi(Vector2f(50,50), Vector2f(150,150), textureSlime, Slimy);
 
             /* Création du personnage */
-            joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
-            joueur->setTexture(texturePersBas);
-            joueur->perso1 = texturePersHaut;
-            joueur->perso2 = texturePersGauche;
-            joueur->perso3 = texturePersDroite;
-            joueur->perso4 = texturePersBas;
-            joueur->setTexture(texturePersHaut);
+            joueur = creerJoueur(Vector2f(500, 500), Vector2f(200, 200), texturePersBas, texturePersGauche, texturePersDroite, texturePersHaut);
 
             /*Création de la flèche*/
             fleche = new Fleche(Vector2f(300, 100), Vector2f(50, 50), 1, false);
             fleche->setTexture(textureFleche);
 
-            while (app.isOpen() && e==Jeu)
+            while (app.isOpen() && e == Jeu)
             {
-                if (Keyboard::isKeyPressed(Keyboard::Space)){
+                if (Keyboard::isKeyPressed(Keyboard::Space))
+                {
                     fleche->deplacer(joueur->vecteurProjectile);
                 }
 
@@ -209,8 +205,8 @@ int main()
 
                 // Clear screen
                 app.clear();
-                 creeRectangle(Vector2f((tailleFenetre.x-(tailleFenetre.x*3/4))/2,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(tailleFenetre.x*3/4,tailleFenetre.y*2/3),app);
-                updateVie(Vector2f(10,10), Vector2f(tailleFenetre.x * 5/15 ,tailleFenetre.y*1/15), coeur,app,joueur);
+                creeRectangle(Vector2f((tailleFenetre.x-(tailleFenetre.x*3/4))/2,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(tailleFenetre.x*3/4,tailleFenetre.y*2/3),app);
+                updateVie(Vector2f(10,10), Vector2f(tailleFenetre.x * 5/15,tailleFenetre.y*1/15), coeur,app,joueur);
                 ennemi->afficher(app);
                 joueur->afficher(app);
                 fleche->afficher(app);
