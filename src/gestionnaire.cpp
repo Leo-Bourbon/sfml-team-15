@@ -35,11 +35,8 @@ void Gestionnaire::actualiser(RenderWindow &app)
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
 
-
-
             }
         }
-
     }
 
 

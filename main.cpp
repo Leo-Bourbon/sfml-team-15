@@ -4,6 +4,12 @@
 
 
 
+
+void bouton_Jeu(void)
+{
+    e = Jeu;
+}
+
 enum Ecran
 {
     Principal, Jeu, Fin
@@ -19,6 +25,8 @@ int main()
     // Create the main window
     sf::RenderWindow app(sf::VideoMode(1280, 1024), "SFML window");
     Vector2f tailleFenetre(app.getSize());
+    Vector2f tailleBouton(tailleFenetre.x*0.25,tailleFenetre.y*0.15);
+
 
     // Load a sprite to display
 
@@ -35,6 +43,10 @@ int main()
 
 
     Gestionnaire gestionnaire;
+
+    foo = &my_int_func;
+
+    foo(2);
 
     // Start the game loop
     while(1)
@@ -65,10 +77,10 @@ int main()
                 // Clear screen
                 app.clear();
 
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.20), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, debut);
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.40), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, para);
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.60), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, quit);
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.80), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, instruction);
+                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.20), tailleBouton, texture, debut);
+                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.37), tailleBouton, texture, para);
+                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.54), tailleBouton, texture, quit);
+                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.71), tailleBouton, texture, instruction);
 
                 gestionnaire.AfficherBouttons(font,app);
                 gestionnaire.actualiser(app);
