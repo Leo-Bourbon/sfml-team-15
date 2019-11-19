@@ -474,3 +474,28 @@
 	"gestionnaire.h"
 	<SFML/Graphics.hpp>
 
+1574149778 source:p:\projet_semaine_spe\sfml-team-15\main.cpp
+	<SFML/Graphics.hpp>
+	"gestionnaire.h"
+	"Bouton.h"
+
+1574149778 p:\projet_semaine_spe\sfml-team-15\include\gestionnaire.h
+	"Bouton.h"
+	<SFML/Graphics.hpp>
+
+1574149778 p:\projet_semaine_spe\sfml-team-15\include\bouton.h
+	<SFML/Graphics.hpp>
+	<string>
+	<sstream>
+	<string.h>
+	<iostream>
+
+1574149778 source:p:\projet_semaine_spe\sfml-team-15\src\bouton.cpp
+	"Bouton.h"
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1574149778 source:p:\projet_semaine_spe\sfml-team-15\src\gestionnaire.cpp
+	"gestionnaire.h"
+	<SFML/Graphics.hpp>
+

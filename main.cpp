@@ -1,17 +1,17 @@
 #include <SFML/Graphics.hpp>
+
+//Les includes
+#include "CONSTANTES.hpp"
 #include "gestionnaire.h"
 #include "Bouton.h"
 
 
 
-enum Ecran
-{
-    Principal, Jeu, Fin
-};
 using namespace sf;
 int main()
 {
     Ecran e = Principal;
+
     Font font;
     if (!font.loadFromFile("arial.ttf"))
         return EXIT_FAILURE;
@@ -21,7 +21,6 @@ int main()
     Vector2f tailleFenetre(app.getSize());
 
     // Load a sprite to display
-
 
     sf::Texture texture;
 
@@ -77,8 +76,7 @@ int main()
             }
             break;
         case Jeu:
-
-
+            //Code au demarrage de l'ecran de jeu
 
             while (app.isOpen() && e==Jeu)
             {
