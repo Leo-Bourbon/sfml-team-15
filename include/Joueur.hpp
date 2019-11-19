@@ -14,6 +14,7 @@ class Joueur : public EntiteVivante
         Texture perso2;
         Texture perso3;
         Texture perso4;
+        Vector2f vecteurProjectile;
     protected:
 
     private:
