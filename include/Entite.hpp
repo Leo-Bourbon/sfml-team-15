@@ -12,6 +12,7 @@ public:
     Entite(Vector2f position, Vector2f taille);
     virtual ~Entite();
 
+
     void afficher(RenderWindow &window);
     void setTexture(Texture &texture);
     virtual void deplacer();
@@ -23,10 +24,13 @@ public:
 
 protected:
 
-private:
     Vector2f position;
     Vector2f taille;
+    Vector2f deplacement;
     RectangleShape forme;
+
+private:
+
 };
 
 
