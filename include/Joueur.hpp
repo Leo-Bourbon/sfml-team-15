@@ -10,7 +10,10 @@ class Joueur : public EntiteVivante
         virtual ~Joueur();
 
         void deplacer();
-
+        Texture perso1;
+        Texture perso2;
+        Texture perso3;
+        Texture perso4;
     protected:
 
     private:

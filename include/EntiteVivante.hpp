@@ -12,7 +12,6 @@ public:
         vie(vieDepart),
         mort(estMort),
         degats(0) {}
-    int vie;
 
     virtual ~EntiteVivante();
     virtual void attaque(EntiteVivante cible, int degats);
@@ -20,9 +19,10 @@ public:
     void recoitSoin(int quantite);
     int getPV();
     int collision(Entite* entite);
-
     int degats;
     bool mort;
+    int vie;
+    Vector2f deplacement;
 
 protected:
 

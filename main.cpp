@@ -20,20 +20,18 @@ int main()
         return EXIT_FAILURE;
 
     // Create the main window
-    RenderWindow app(VideoMode(1280, 1024), "SFML window");
+    RenderWindow app(VideoMode(1280, 1024), "The Lone Survivor");
     Vector2f tailleFenetre(app.getSize());
     Vector2f tailleBouton(tailleFenetre.x*0.25,tailleFenetre.y*0.15);
 
-
     // Load a sprite to display
-
     Texture cb;
     if (!cb.loadFromFile("assets\\cb.bmp"))
         return EXIT_FAILURE;
 
     /* variable interfaces*/
     Texture perso;
-    if (!perso.loadFromFile("assets\\perso.png"))
+    if (!perso.loadFromFile("assets\\perso-1.png"))
         return EXIT_FAILURE;
 
     Texture texture;
@@ -48,15 +46,11 @@ int main()
 
     Gestionnaire gestionnaire;
 
-    /* variable jerem*/
-    Ennemi* ennemi2;
-    /* */
+    /* variable Jerem*/
+    Ennemi* ennemi;
+
+    /* Variable Mams */
      Joueur* joueur;
-
-    Joueur* joueur1;
-
-    //joueur1->setTexture(cb);
-
     // Start the game loop
     while(1)
     {
@@ -122,16 +116,27 @@ int main()
             break;
         case Jeu:
             //Code au demarrage de l'ecran de jeu
-
-            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
+            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
             joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
+            if (!joueur->perso1.loadFromFile("assets\\perso-1.png"))
+                return EXIT_FAILURE;
+
+            if (!joueur->perso2.loadFromFile("assets\\perso-2.png"))
+                return EXIT_FAILURE;
+
+            if (!joueur->perso3.loadFromFile("assets\\perso-3.png"))
+                return EXIT_FAILURE;
+
+            if (!joueur->perso4.loadFromFile("assets\\perso-4.png"))
+                return EXIT_FAILURE;
+
             joueur->setTexture(perso);
 
             while (app.isOpen() && e==Jeu)
             {
                 joueur->deplacer();
-                if (joueur->collision(ennemi2) == 1) {
-                    joueur->subitDegat(ennemi2->degats);
+                if (joueur->collision(ennemi) == 1) {
+                    joueur->subitDegat(ennemi->degats);
                 }
 
                 printf("%i", joueur->vie);
@@ -148,7 +153,7 @@ int main()
                 // Clear screen
                 app.clear();
 
-                ennemi2->afficher(app);
+                ennemi->afficher(app);
                 joueur->afficher(app);
 
                 app.display();

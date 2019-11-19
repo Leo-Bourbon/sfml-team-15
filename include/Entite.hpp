@@ -22,11 +22,10 @@ public:
     void     setTaille(Vector2f newTaille);
 
     RectangleShape forme;
-
-protected:
     Vector2f position;
     Vector2f taille;
-    Vector2f deplacement;
+
+protected:
 
 private:
 
