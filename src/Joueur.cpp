@@ -1,5 +1,4 @@
 #include "Joueur.hpp"
-
 #define PAS 1
 
 Joueur::Joueur()

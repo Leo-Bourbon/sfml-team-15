@@ -4,7 +4,8 @@
 #include "CONSTANTES.hpp"
 #include "gestionnaire.h"
 #include "Bouton.h"
-
+#include "Ennemi.hpp"
+#include "fonctionsEnnemi.hpp"
 
 
 using namespace sf;
@@ -17,16 +18,21 @@ int main()
         return EXIT_FAILURE;
 
     // Create the main window
-    sf::RenderWindow app(sf::VideoMode(1280, 1024), "SFML window");
+    RenderWindow app(VideoMode(1280, 1024), "SFML window");
     Vector2f tailleFenetre(app.getSize());
 
     // Load a sprite to display
 
-    sf::Texture texture;
+    Texture cb;
+
+    if (!cb.loadFromFile("cb.bmp"))
+        return EXIT_FAILURE;
+
+    Texture texture;
 
     if (!texture.loadFromFile("button.png"))
         return EXIT_FAILURE;
-    sf::Sprite sprite(texture);
+    Sprite sprite(texture);
     std::string debut = "Jouer";
     std::string para = "Paramètres";
     std::string quit = "Quitter";
@@ -34,6 +40,8 @@ int main()
 
 
     Gestionnaire gestionnaire;
+
+     Ennemi* ennemi2;
 
     // Start the game loop
     while(1)
@@ -45,7 +53,7 @@ int main()
             while (app.isOpen() && e == Principal)
             {
                 // Process events
-                sf::Event event;
+                Event event;
                 while (app.pollEvent(event))
                 {
                     switch(event.type)
@@ -78,32 +86,38 @@ int main()
         case Jeu:
             //Code au demarrage de l'ecran de jeu
 
+            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, S);
+            ennemi2->setTexture(cb);
+
             while (app.isOpen() && e==Jeu)
             {
                 // Process events
-                sf::Event event;
+                Event event;
                 while (app.pollEvent(event))
                 {
                     // Close window : exit
-                    if (event.type == sf::Event::Closed)
+                    if (event.type == Event::Closed)
                         app.close();
                 }
 
                 // Clear screen
                 app.clear();
 
+                ennemi2->afficher(app);
+
                 app.display();
             }
             break;
+
         case Fin:
             while (app.isOpen())
             {
                 // Process events
-                sf::Event event;
+                Event event;
                 while (app.pollEvent(event))
                 {
                     // Close window : exit
-                    if (event.type == sf::Event::Closed)
+                    if (event.type == Event::Closed)
                         app.close();
                 }
 
