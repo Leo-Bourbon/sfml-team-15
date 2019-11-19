@@ -7,7 +7,6 @@
 #include "Ennemi.hpp"
 #include "fonctionsEnnemi.hpp"
 
-
 using namespace sf;
 int main()
 {

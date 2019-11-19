@@ -53,10 +53,13 @@
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Bouton.h" />
 		<Unit filename="include/CONSTANTES.hpp" />
+<<<<<<< HEAD
 		<Unit filename="include/Ennemi.hpp" />
 		<Unit filename="include/Entite.hpp" />
 		<Unit filename="include/EntiteVivante.hpp" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />
+=======
+>>>>>>> 7251cede21be14e288f3dcec01cf5b264cb5017b
 		<Unit filename="include/gestionnaire.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Bouton.cpp" />
