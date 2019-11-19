@@ -33,7 +33,6 @@ void Joueur::deplacer() {
         this->setTexture(perso2);
         deplacement.x = -PAS;
     }
-    printf("%i\n", this->deplacement.x);
     this->forme.move(this->deplacement);
     deplacement = Vector2f(0, 0);
 }
