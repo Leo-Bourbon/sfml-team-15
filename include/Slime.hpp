@@ -8,6 +8,7 @@ public:
     Slime();
     Slime(Vector2f position, Vector2f taille, int vieDepart, bool estMort) : Ennemi(position, taille, vieDepart, estMort){}
     virtual ~Slime();
+    Texture slime;
 
 protected:
 
