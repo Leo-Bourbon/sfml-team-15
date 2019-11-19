@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7251cede21be14e288f3dcec01cf5b264cb5017b
 # Created by https://www.gitignore.io/api/c++,codeblocks
 # Edit at https://www.gitignore.io/?templates=c++,codeblocks
 
@@ -43,4 +47,8 @@
 bin/
 obj/
 
+<<<<<<< HEAD
 # End of https://www.gitignore.io/api/c++,codeblocks
+=======
+# End of https://www.gitignore.io/api/c++,codeblocks
+>>>>>>> 7251cede21be14e288f3dcec01cf5b264cb5017b
