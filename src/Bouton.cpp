@@ -51,14 +51,14 @@ bool Bouton::estAppuye(Vector2f posSouris,std::vector<Bouton*> liste,int i)
         if(liste[i]->forme.getLocalBounds().contains(posSouris))
         {
 
-            printf("%i",1);
+            //printf("%i",1);
             test = 1;
 
 
         }
         else
         {
-            printf("%i",0);
+           // printf("%i",0);
             test = 0;
 
         }

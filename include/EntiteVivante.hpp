@@ -12,17 +12,18 @@ public:
         vie(vieDepart),
         mort(estMort),
         degats(0) {}
+    int vie;
 
     virtual ~EntiteVivante();
-    virtual void attaque(EntiteVivante e);
+    virtual void attaque(EntiteVivante cible, int degats);
     void subitDegat(int quantite);
     void recoitSoin(int quantite);
     int getPV();
+    int collision(Entite *entite);
 
     int degats;
 
 protected:
-    int vie;
     bool mort;
 
 private:

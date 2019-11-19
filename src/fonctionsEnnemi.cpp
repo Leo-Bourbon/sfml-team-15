@@ -11,9 +11,9 @@ Ennemi* creerEnnemi(Vector2f position, Vector2f taille, Texture &texture, TypeEn
         //ennemi = new CSouris();
         break;
     case S :
-        ennemi = new Slime(Vector2f(0,0), Vector2f(100,100), 10, false);
+        ennemi = new Slime(position, taille, 10, false);
         ennemi->degats = 10;
-
+        ennemi->setTexture(texture);
         break;
     }
     return ennemi;

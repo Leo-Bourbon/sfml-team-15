@@ -5,6 +5,8 @@
 #include "gestionnaire.h"
 #include "Bouton.h"
 #include "Ennemi.hpp"
+#include "EntiteVivante.hpp"
+#include "Joueur.hpp"
 #include "fonctionsEnnemi.hpp"
 
 using namespace sf;
@@ -23,12 +25,14 @@ int main()
     // Load a sprite to display
 
     Texture cb;
-
     if (!cb.loadFromFile("cb.bmp"))
         return EXIT_FAILURE;
 
-    Texture texture;
+    Texture perso;
+    if (!perso.loadFromFile("perso.png"))
+        return EXIT_FAILURE;
 
+    Texture texture;
     if (!texture.loadFromFile("button.png"))
         return EXIT_FAILURE;
     Sprite sprite(texture);
@@ -41,6 +45,7 @@ int main()
     Gestionnaire gestionnaire;
 
      Ennemi* ennemi2;
+     Joueur* joueur;
 
     // Start the game loop
     while(1)
@@ -86,10 +91,18 @@ int main()
             //Code au demarrage de l'ecran de jeu
 
             ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, S);
-            ennemi2->setTexture(cb);
+            joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
+            joueur->setTexture(perso);
 
             while (app.isOpen() && e==Jeu)
             {
+                joueur->deplacer();
+                if (joueur->collision(ennemi2) == 1) {
+                    joueur->subitDegat(ennemi2->degats);
+                }
+
+                printf("%i", joueur->vie);
+
                 // Process events
                 Event event;
                 while (app.pollEvent(event))
@@ -103,6 +116,7 @@ int main()
                 app.clear();
 
                 ennemi2->afficher(app);
+                joueur->afficher(app);
 
                 app.display();
             }
