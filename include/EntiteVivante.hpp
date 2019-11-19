@@ -20,9 +20,11 @@ public:
     void recoitSoin(int quantite);
     int getPV();
     int collision(Entite* entite);
+    bool estMort();
 
     int degats;
     bool mort;
+    Vector2f deplacement;
 
 protected:
 

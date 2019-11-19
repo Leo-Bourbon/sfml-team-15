@@ -124,7 +124,7 @@ int main()
             //Code au demarrage de l'ecran de jeu
 
             ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
-            joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
+            joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 1000, false);
             joueur->setTexture(perso);
 
             while (app.isOpen() && e==Jeu)
@@ -132,9 +132,9 @@ int main()
                 joueur->deplacer();
                 if (joueur->collision(ennemi2) == 1) {
                     joueur->subitDegat(ennemi2->degats);
+                    printf("Vie : %i\n", joueur->vie);
+                    printf("Mort : %i\n", joueur->estMort());
                 }
-
-                printf("%i", joueur->vie);
 
                 // Process events
                 Event event;

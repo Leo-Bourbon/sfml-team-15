@@ -42,3 +42,10 @@ int EntiteVivante::collision(Entite* entite)
         return 1;
     else return 0;
 }
+
+bool EntiteVivante::estMort()
+{
+    if(this->getPV() <= 0)
+        return true;
+    else return false;
+}
