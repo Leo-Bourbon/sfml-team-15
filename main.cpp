@@ -6,11 +6,10 @@
 #include "Bouton.h"
 #include "Ennemi.hpp"
 #include "Joueur.hpp"
+#include "Fleche.hpp"
 #include "fonctionsEnnemi.hpp"
 #include "functional"
 #include "functionsImages.hpp"
-
-
 
 using namespace sf;
 int main()
@@ -31,11 +30,7 @@ int main()
     if (!cb.loadFromFile("assets\\cb.bmp"))
         return EXIT_FAILURE;
 
-    Texture perso;
-    if (!perso.loadFromFile("assets\\perso-1.png"))
-        return EXIT_FAILURE;
     /* variable interfaces*/
-
 
     Texture texture;
 
@@ -92,6 +87,7 @@ int main()
 
     // variables Mams
     Joueur* joueur;
+    Fleche* fleche;
 
     /*Textures personnage joueur*/
     Texture texturePersBas;
@@ -107,7 +103,11 @@ int main()
         return EXIT_FAILURE;
     if (!texturePersDroite.loadFromFile("assets\\perso-3.png"))
         return EXIT_FAILURE;
-    /*                         */
+
+    //Texture flèche
+    Texture textureFleche;
+    if (!textureFleche.loadFromFile("assets\\Fleche.png"))
+        return EXIT_FAILURE;
 
     // Start the game loop
     while(1)
@@ -154,19 +154,26 @@ int main()
             break;
         case Jeu:
             //Code au demarrage de l'ecran de jeu
-            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
+            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
 
+            /* Création du personnage */
             joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
+            joueur->setTexture(texturePersBas);
             joueur->perso1 = texturePersHaut;
             joueur->perso2 = texturePersGauche;
             joueur->perso3 = texturePersDroite;
             joueur->perso4 = texturePersBas;
 
-
-            joueur->setTexture(perso);
+            /*Création de la flèche*/
+            fleche = new Fleche(Vector2f(300, 100), Vector2f(50, 50), 1, false);
+            fleche->setTexture(textureFleche);
 
             while (app.isOpen() && e==Jeu)
             {
+                if (Keyboard::isKeyPressed(Keyboard::Space)){
+                    fleche->deplacer(joueur->vecteurProjectile);
+                }
+
                 joueur->deplacer();
                 if (joueur->collision(ennemi) == 1)
                 {
@@ -198,8 +205,9 @@ int main()
                 // Clear screen
                 app.clear();
 
-                ennemi2->afficher(app);
+                ennemi->afficher(app);
                 joueur->afficher(app);
+                fleche->afficher(app);
 
                 app.display();
             }
