@@ -212,7 +212,7 @@ int main()
                  creeRectangle(Vector2f((tailleFenetre.x-(tailleFenetre.x*3/4))/2,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(tailleFenetre.x*3/4,tailleFenetre.y*2/3),app);
                 updateVie(Vector2f(10,10), Vector2f(tailleFenetre.x * 5/15 ,tailleFenetre.y*1/15), coeur,app,joueur);
 
-                //ennemi->afficher(app);
+                ennemi->afficher(app);
                 joueur->afficher(app);
                 fleche->afficher(app);
 

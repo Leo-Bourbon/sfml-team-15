@@ -58,6 +58,7 @@
 		<Unit filename="include/Entite.hpp" />
 		<Unit filename="include/EntiteVivante.hpp" />
 		<Unit filename="include/Etage.h" />
+		<Unit filename="include/Fleche.hpp" />
 		<Unit filename="include/Joueur.hpp" />
 		<Unit filename="include/Salle.h" />
 		<Unit filename="include/Salle.hpp" />
@@ -76,6 +77,7 @@
 		<Unit filename="src/Joueur.cpp" />
 		<Unit filename="src/Salle.cpp" />
 		<Unit filename="src/Slime.cpp" />
+		<Unit filename="src/fleche.cpp" />
 		<Unit filename="src/fonctionsEnnemi.cpp" />
 		<Unit filename="src/gestionnaire.cpp" />
 		<Extensions>
