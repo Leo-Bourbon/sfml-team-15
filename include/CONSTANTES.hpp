@@ -1,9 +1,12 @@
 #ifndef CONSTANTES_HPP_INCLUDED
+#include <map>
 #define CONSTANTES_HPP_INCLUDED
 
-#define LARGEUR_SALLE 20
-#define HAUTEUR_SALLE 10
+#define LARGEUR_CASES_SALLE 20
+#define HAUTEUR_CASES_SALLE 10
 
+#define LARGEUR_SALLES 3/4
+#define HAUTEUR_SALLES 2/3
 enum Ecran
 {
     Principal, Jeu, Fin,Parametre, Instruction,Quitter
@@ -11,7 +14,7 @@ enum Ecran
 
 enum TypeEntite
 {
-    Joueur, Sol, Trou, Rocher, CSouris, S
+    Personnage = 0, Sol = 1, Trou = 2, Rocher = 3, CSouris = 4, Slime = 5
 };
 
 #endif // CONSTANTES_HPP_INCLUDED
