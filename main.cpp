@@ -16,7 +16,7 @@ int main()
     Ecran e = Principal;
 
     Font font;
-    if (!font.loadFromFile("arial.ttf"))
+    if (!font.loadFromFile("assets\\arial.ttf"))
         return EXIT_FAILURE;
 
     // Create the main window
@@ -28,16 +28,16 @@ int main()
     // Load a sprite to display
 
     Texture cb;
-    if (!cb.loadFromFile("cb.bmp"))
+    if (!cb.loadFromFile("assets\\cb.bmp"))
         return EXIT_FAILURE;
 
     /* variable interfaces*/
     Texture perso;
-    if (!perso.loadFromFile("perso.png"))
+    if (!perso.loadFromFile("assets\\perso.png"))
         return EXIT_FAILURE;
 
     Texture texture;
-    if (!texture.loadFromFile("button.png"))
+    if (!texture.loadFromFile("assets\\button.png"))
         return EXIT_FAILURE;
     Sprite sprite(texture);
     std::string debut = "Jouer";
