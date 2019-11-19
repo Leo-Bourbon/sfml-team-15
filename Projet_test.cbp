@@ -60,7 +60,6 @@
 		<Unit filename="include/Etage.h" />
 		<Unit filename="include/Fleche.hpp" />
 		<Unit filename="include/Joueur.hpp" />
-		<Unit filename="include/Salle.h" />
 		<Unit filename="include/Salle.hpp" />
 		<Unit filename="include/Slime.hpp" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />

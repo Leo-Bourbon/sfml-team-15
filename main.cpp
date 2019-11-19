@@ -168,7 +168,7 @@ int main()
             joueur = creerJoueur(Vector2f(500, 500), Vector2f(200, 200), texturePersBas, texturePersGauche, texturePersDroite, texturePersHaut);
 
             /*Création de la flèche*/
-            fleche = new Fleche(Vector2f(300, 100), Vector2f(50, 50), 1, false);
+            fleche = creerFleche(Vector2f(300, 100), Vector2f(50, 50), textureFleche);
             fleche->setTexture(textureFleche);
 
             while (app.isOpen() && e == Jeu)
@@ -214,6 +214,7 @@ int main()
                 app.clear();
                 creeRectangle(Vector2f((tailleFenetre.x-(tailleFenetre.x*3/4))/2,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(tailleFenetre.x*3/4,tailleFenetre.y*2/3),app);
                 updateVie(Vector2f(10,10), Vector2f(tailleFenetre.x * 5/15 ,tailleFenetre.y*1/15), coeur,app,joueur);
+
                 fleche->afficher(app);
                 ennemi->afficher(app);
                 joueur->afficher(app);
