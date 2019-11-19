@@ -57,8 +57,10 @@
 		<Unit filename="include/Ennemi.hpp" />
 		<Unit filename="include/Entite.hpp" />
 		<Unit filename="include/EntiteVivante.hpp" />
+		<Unit filename="include/Etage.h" />
 		<Unit filename="include/Joueur.hpp" />
 		<Unit filename="include/Salle.h" />
+		<Unit filename="include/Salle.hpp" />
 		<Unit filename="include/Slime.hpp" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />
 		<Unit filename="include/functionsImages.hpp" />
@@ -69,8 +71,10 @@
 		<Unit filename="src/Ennemi.cpp" />
 		<Unit filename="src/Entite.cpp" />
 		<Unit filename="src/EntiteVivante.cpp" />
+		<Unit filename="src/Etage.cpp" />
 		<Unit filename="src/FunctionsImages.cpp" />
 		<Unit filename="src/Joueur.cpp" />
+		<Unit filename="src/Salle.cpp" />
 		<Unit filename="src/Slime.cpp" />
 		<Unit filename="src/fonctionsEnnemi.cpp" />
 		<Unit filename="src/gestionnaire.cpp" />
