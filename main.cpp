@@ -6,7 +6,6 @@
 #include "Bouton.h"
 
 
-
 using namespace sf;
 int main()
 {
