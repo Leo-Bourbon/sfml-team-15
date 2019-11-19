@@ -10,7 +10,7 @@
 
 enum Ecran
 {
-    Principal, Jeu, Fin
+    Principal, Jeu, Fin, Parametre, Instruction, Quitter
 };
 
 enum TypeEntite
