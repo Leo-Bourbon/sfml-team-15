@@ -7,6 +7,8 @@
 #include "Ennemi.hpp"
 #include "Joueur.hpp"
 #include "fonctionsEnnemi.hpp"
+#include "functional"
+
 
 using namespace sf;
 int main()
@@ -20,13 +22,15 @@ int main()
     // Create the main window
     RenderWindow app(VideoMode(1280, 1024), "SFML window");
     Vector2f tailleFenetre(app.getSize());
+    Vector2f tailleBouton(tailleFenetre.x*0.25,tailleFenetre.y*0.15);
+
 
     // Load a sprite to display
 
     Texture cb;
     if (!cb.loadFromFile("cb.bmp"))
         return EXIT_FAILURE;
-
+    /* variable interfaces*/
     Texture perso;
     if (!perso.loadFromFile("perso.png"))
         return EXIT_FAILURE;
@@ -39,11 +43,13 @@ int main()
     std::string para = "Paramètres";
     std::string quit = "Quitter";
     std::string instruction = "Instructions";
-
+    /* */
 
     Gestionnaire gestionnaire;
 
+    /* variable jerem*/
     Ennemi* ennemi2;
+    /* */
 
     Joueur* joueur1;
 
@@ -73,18 +79,41 @@ int main()
                     }
                 }
 
-                if(Keyboard::isKeyPressed(Keyboard::Return)) e = Jeu;
-
+                gestionnaire.reset();
                 // Clear screen
                 app.clear();
 
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.20), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, debut);
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.40), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, para);
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.60), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, quit);
-                gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.80), Vector2f(tailleFenetre.x*0.25,tailleFenetre.y*0.25), texture, instruction);
+                Bouton* b1 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.20), tailleBouton, texture, debut);
+                std::function<void (Ecran&)> myFunction = [](Ecran& e)
+                {
+                    e = Jeu;
+                };
+                b1->function = myFunction;
+
+
+                Bouton* b2 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.37), tailleBouton, texture, para);
+                std::function<void (Ecran&)> myFunction2 = [](Ecran& e)
+                {
+                    e = Parametre;
+                };
+                b2->function = myFunction2;
+                Bouton* b3 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.54), tailleBouton, texture, quit);
+                std::function<void (Ecran&)> myFunction3 = [](Ecran& e)
+                {
+                    e = Quitter;
+                };
+                b3->function = myFunction3;
+                Bouton* b4 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.71), tailleBouton, texture, instruction);
+                std::function<void (Ecran&)> myFunction4 = [](Ecran& e)
+                {
+                    e = Instruction;
+                };
+                b4->function = myFunction4;
+
+
 
                 gestionnaire.AfficherBouttons(font,app);
-                gestionnaire.actualiser(app);
+                gestionnaire.actualiser(app, e);
                 app.display();
 
             }
@@ -138,6 +167,46 @@ int main()
                 app.clear();
                 app.display();
             }
+            break;
+        case Instruction:
+
+
+
+            while (app.isOpen() && e == Instruction)
+            {
+                // Process events
+                sf::Event event;
+                while (app.pollEvent(event))
+                {
+                    // Close window : exit
+                    switch(event.type)
+                    {
+                    // Close window : exit
+                    case Event::Closed :
+                        app.close();
+                        break;
+                    default:
+                        break;
+                    }
+                }
+                gestionnaire.reset();
+
+                // Clear screen
+                app.clear();
+
+                Bouton* b3 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.54), tailleBouton, texture, quit);
+                std::function<void (Ecran&)> myFunction3 = [](Ecran& e)
+                {
+                    e = Principal;
+                };
+                b3->function = myFunction3;
+                gestionnaire.AfficherBouttons(font,app);
+                gestionnaire.actualiser(app, e);
+                app.display();
+            }
+            break;
+        case Quitter:
+            app.close();
             break;
         }
     }

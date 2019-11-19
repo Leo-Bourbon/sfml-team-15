@@ -5,6 +5,8 @@
 #include <sstream>
 #include <string.h>
 #include <iostream>
+#include "CONSTANTES.hpp"
+#include <functional>
 using namespace sf;
 class Bouton
 {
@@ -16,9 +18,9 @@ public:
     bool estAppuye(Vector2f posSouris,std::vector<Bouton*> liste,int i);
     virtual ~Bouton();
 
-protected:
+    std::function<void(Ecran&)> function;
 
-private:
+protected:
     Vector2f taille;
     Vector2f position;
     Texture arrPlan;
@@ -26,6 +28,9 @@ private:
     sf::Text text;
     RectangleShape forme;
     int test;
+
+
+private:
 };
 
 #endif // BOUTON_H
