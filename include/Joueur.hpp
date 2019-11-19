@@ -10,10 +10,12 @@ class Joueur : public EntiteVivante
         virtual ~Joueur();
 
         void deplacer();
+        void tuer();
         Texture perso1;
         Texture perso2;
         Texture perso3;
         Texture perso4;
+        Texture persoMort;
         Vector2f vecteurProjectile;
     protected:
 

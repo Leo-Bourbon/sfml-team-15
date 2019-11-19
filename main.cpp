@@ -98,6 +98,7 @@ int main()
     Texture texturePersDroite;
     Texture texturePersGauche;
     Texture texturePersHaut;
+    Texture persoMort; //Texture du perso mort
 
     if (!texturePersBas.loadFromFile("assets\\perso-4.png"))
         return EXIT_FAILURE;
@@ -106,6 +107,8 @@ int main()
     if (!texturePersGauche.loadFromFile("assets\\perso-2.png"))
         return EXIT_FAILURE;
     if (!texturePersDroite.loadFromFile("assets\\perso-3.png"))
+        return EXIT_FAILURE;
+    if (!persoMort.loadFromFile("assets\\slime.png"))
         return EXIT_FAILURE;
 
     //Texture flèche
@@ -187,6 +190,10 @@ int main()
                     printf("Mort : %i\n", joueur->estMort());
                 }
 
+                if (joueur->estMort()) {
+                    joueur->tuer();
+                }
+
                 // Process events
                 Event event;
                 while (app.pollEvent(event))
@@ -209,11 +216,11 @@ int main()
 
                 // Clear screen
                 app.clear();
-                 creeRectangle(Vector2f((tailleFenetre.x-(tailleFenetre.x*3/4))/2,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(tailleFenetre.x*3/4,tailleFenetre.y*2/3),app);
+                creeRectangle(Vector2f((tailleFenetre.x-(tailleFenetre.x*3/4))/2,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(tailleFenetre.x*3/4,tailleFenetre.y*2/3),app);
                 updateVie(Vector2f(10,10), Vector2f(tailleFenetre.x * 5/15 ,tailleFenetre.y*1/15), coeur,app,joueur);
+                fleche->afficher(app);
                 ennemi->afficher(app);
                 joueur->afficher(app);
-                fleche->afficher(app);
 
                 app.display();
             }

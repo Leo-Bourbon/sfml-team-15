@@ -26,7 +26,6 @@ public:
     int degats;
 
     Vector2f deplacement;
-    Vector2f deplacementProjectile;
 
 protected:
 
