@@ -87,7 +87,6 @@ int main()
         e = Principal;
     };
 
-
     /* variable jerem*/
     Ennemi* ennemi2;
     /* */
@@ -100,12 +99,8 @@ int main()
         {
         case Principal:
             gestionnaire.reset();
-
-
             b1  = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/1.25,tailleFenetre.y*0.35), tailleBouton, texture, debut);
             b1->function = myFunction;
-
-
             b2 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/1.25,tailleFenetre.y*0.52), tailleBouton, texture, para);
             b2->function = myFunction2;
             b3 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/1.25,tailleFenetre.y*0.69), tailleBouton, texture, instruction);
@@ -128,8 +123,6 @@ int main()
                         break;
                     }
                 }
-
-
                 // Clear screen
                 app.clear();
 
@@ -143,7 +136,7 @@ int main()
             break;
         case Jeu:
             //Code au demarrage de l'ecran de jeu
-            ennemi = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
+            ennemi2 = creerEnnemi(Vector2f(50,50), Vector2f(50,50), cb, Slimy);
             joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
             if (!joueur->perso1.loadFromFile("assets\\perso-1.png"))
                 return EXIT_FAILURE;
@@ -192,7 +185,7 @@ int main()
                 // Clear screen
                 app.clear();
 
-                ennemi->afficher(app);
+                ennemi2->afficher(app);
                 joueur->afficher(app);
 
                 app.display();
