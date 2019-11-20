@@ -11,7 +11,6 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
@@ -51,26 +50,6 @@
 			<Add library="dxguid" />
 			<Add directory="C:/SFML/lib" />
 		</Linker>
-		<Unit filename="assets/LogoJeu.png" />
-		<Unit filename="assets/arial.ttf" />
-		<Unit filename="assets/background.png" />
-		<Unit filename="assets/button.png" />
-		<Unit filename="assets/cb.bmp" />
-		<Unit filename="assets/coeur.png" />
-		<Unit filename="assets/fleche.png" />
-		<Unit filename="assets/liste_salles.txt" />
-		<Unit filename="assets/map_biblio.png" />
-		<Unit filename="assets/map_bois.png" />
-		<Unit filename="assets/map_boss.png" />
-		<Unit filename="assets/map_nether.png" />
-		<Unit filename="assets/map_pierre.png" />
-		<Unit filename="assets/overlay.png" />
-		<Unit filename="assets/perso-1.png" />
-		<Unit filename="assets/perso-2.png" />
-		<Unit filename="assets/perso-3.png" />
-		<Unit filename="assets/perso-4.png" />
-		<Unit filename="assets/perso.png" />
-		<Unit filename="assets/slime.png" />
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Bouton.h" />
 		<Unit filename="include/CONSTANTES.hpp" />
@@ -81,9 +60,12 @@
 		<Unit filename="include/Etage.h" />
 		<Unit filename="include/Fleche.hpp" />
 		<Unit filename="include/Joueur.hpp" />
+		<Unit filename="include/Rocher.hpp" />
 		<Unit filename="include/Salle.hpp" />
 		<Unit filename="include/Slime.hpp" />
+		<Unit filename="include/Trou.h" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />
+		<Unit filename="include/fonctionsEnvironnement.hpp" />
 		<Unit filename="include/fonctionsJoueur.hpp" />
 		<Unit filename="include/functionsImages.hpp" />
 		<Unit filename="include/gestionnaire.h" />
@@ -96,10 +78,13 @@
 		<Unit filename="src/Etage.cpp" />
 		<Unit filename="src/FunctionsImages.cpp" />
 		<Unit filename="src/Joueur.cpp" />
+		<Unit filename="src/Rocher.cpp" />
 		<Unit filename="src/Salle.cpp" />
 		<Unit filename="src/Slime.cpp" />
+		<Unit filename="src/Trou.cpp" />
 		<Unit filename="src/fleche.cpp" />
 		<Unit filename="src/fonctionsEnnemi.cpp" />
+		<Unit filename="src/fonctionsEnvironnement.cpp" />
 		<Unit filename="src/fonctionsJoueur.cpp" />
 		<Unit filename="src/gestionnaire.cpp" />
 		<Extensions>
