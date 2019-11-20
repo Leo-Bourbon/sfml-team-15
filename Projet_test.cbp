@@ -50,7 +50,6 @@
 			<Add library="dxguid" />
 			<Add directory="C:/SFML/lib" />
 		</Linker>
-		<Unit filename="cb.bmp" />
 		<Unit filename="include/Bat.hpp" />
 		<Unit filename="include/Bouton.h" />
 		<Unit filename="include/CONSTANTES.hpp" />
