@@ -40,14 +40,21 @@ void Etage::handleInput()
 
 void Etage::genererEtage()
 {
-    salles[0] = listeSalles[0];
+    std::vector<Salle> listeSallesTemp(this->listeSalles);
 
-    for(int index = 0; index < 4; index++)
+    salles[0] = listeSallesTemp[0];
+    printf("Salle 0 : %c\n", salles[0].getName());
+
+    for(int index = 1; index < 6; index++)
     {
-        if(index != 0)
-        {
-            salles[index] = listeSalles[rand() % listeSalles.size()];
-        }
+        int s = listeSallesTemp.size();
+
+        int random =  1 + rand() % (listeSallesTemp.size()-1);
+        salles[index] = listeSallesTemp[random];
+
+        printf("Salle %i : %c\n", index, salles[index].getName());
+
+        listeSallesTemp.erase(listeSallesTemp.begin() + random);
     }
     genererEntitesDeSalle(salles[salleActuelle]);
 };
@@ -191,11 +198,11 @@ void Etage::checkCollisionsDmg(Joueur* j)
         if(listeEntites[i] == j)
             continue;
 
-        printf("%s", typeid(*listeEntites[i]).name());
+        //printf("%s", typeid(*listeEntites[i]).name());
 
         if(dynamic_cast<Ennemi*>(listeEntites[i]))
         {
-            printf("Cast\n");
+            //printf("Cast\n");
             sf::FloatRect otherPos(listeEntites[i]->forme.getGlobalBounds());
 
             if (curPos.left > (otherPos.left + otherPos.width) || otherPos.left > (curPos.left + curPos.width))

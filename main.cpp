@@ -233,6 +233,9 @@ int main()
             printf("Largeur pers : %f\n", etage.arrPlan.getSize().x * LARGEUR_PERSONNAGE);
             joueur = creerJoueur(Vector2f(500, 500), Vector2f(etage.arrPlan.getSize().x * LARGEUR_PERSONNAGE, (etage.arrPlan.getSize().x * LARGEUR_PERSONNAGE) * HAUTEUR_PERSONNAGE), texturePersBas, texturePersGauche, texturePersDroite, texturePersHaut);
 
+
+            afficherSalles(etage.listeSalles, hConsole);
+
             etage.setJoueur(joueur);
             //etage.slimeTex = textureSlime;
 
@@ -255,8 +258,33 @@ int main()
                         app.close();
                         break;
                     case Event::KeyPressed:
-                        if(event.key.code == Keyboard::Escape)
+                        switch(event.key.code)
+                        {
+                        case Keyboard::Escape:
                             e = Principal;
+                            break;
+                        case Keyboard::Num1:
+                            etage.changerSalle(0);
+                            break;
+                        case Keyboard::Num2:
+                            etage.changerSalle(1);
+                            break;
+                        case Keyboard::Num3:
+                            etage.changerSalle(2);
+                            break;
+                        case Keyboard::Num4:
+                            etage.changerSalle(3);
+                            break;
+                        case Keyboard::Num5:
+                            etage.changerSalle(4);
+                            break;
+                        case Keyboard::Num6:
+                            etage.changerSalle(5);
+                            break;
+                        default:
+                            break;
+                        }
+
                         break;
                     default:
                         break;

@@ -50,6 +50,29 @@
 			<Add library="dxguid" />
 			<Add directory="C:/SFML/lib" />
 		</Linker>
+		<Unit filename="assets/LogoJeu.png" />
+		<Unit filename="assets/arial.ttf" />
+		<Unit filename="assets/background.png" />
+		<Unit filename="assets/button.png" />
+		<Unit filename="assets/cb.bmp" />
+		<Unit filename="assets/coeur.png" />
+		<Unit filename="assets/csouris.png" />
+		<Unit filename="assets/fleche.png" />
+		<Unit filename="assets/liste_salles.txt" />
+		<Unit filename="assets/map_biblio.png" />
+		<Unit filename="assets/map_bois.png" />
+		<Unit filename="assets/map_boss.png" />
+		<Unit filename="assets/map_nether.png" />
+		<Unit filename="assets/map_pierre.png" />
+		<Unit filename="assets/overlay.png" />
+		<Unit filename="assets/perso-1.png" />
+		<Unit filename="assets/perso-2.png" />
+		<Unit filename="assets/perso-3.png" />
+		<Unit filename="assets/perso-4.png" />
+		<Unit filename="assets/perso.png" />
+		<Unit filename="assets/rocher.png" />
+		<Unit filename="assets/slime.png" />
+		<Unit filename="assets/trou.png" />
 		<Unit filename="include/Bat.hpp" />
 		<Unit filename="include/Bouton.h" />
 		<Unit filename="include/CONSTANTES.hpp" />
@@ -64,7 +87,6 @@
 		<Unit filename="include/Salle.hpp" />
 		<Unit filename="include/Slime.hpp" />
 		<Unit filename="include/Stone.hpp" />
-		<Unit filename="include/WarwickBoss.hpp" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />
 		<Unit filename="include/fonctionsEnvironnement.hpp" />
 		<Unit filename="include/fonctionsJoueur.hpp" />
@@ -84,7 +106,6 @@
 		<Unit filename="src/Salle.cpp" />
 		<Unit filename="src/Slime.cpp" />
 		<Unit filename="src/Stone.cpp" />
-		<Unit filename="src/WarwickBoss.cpp" />
 		<Unit filename="src/fleche.cpp" />
 		<Unit filename="src/fonctionsEnnemi.cpp" />
 		<Unit filename="src/fonctionsEnvironnement.cpp" />
