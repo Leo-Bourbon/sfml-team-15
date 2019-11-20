@@ -49,3 +49,7 @@ bool EntiteVivante::estMort()
         return true;
     else return false;
 }
+
+void EntiteVivante::tuer(Texture &texture) {
+    this->setTexture(texture);
+}

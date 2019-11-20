@@ -17,6 +17,7 @@ public:
     virtual void attaque(EntiteVivante cible, int degats);
     void subitDegat(int quantite);
     void recoitSoin(int quantite);
+    void tuer(Texture &texture);
     int getPV();
     int collision(Entite* entite);
     bool estMort();
@@ -25,7 +26,7 @@ public:
     bool mort;
     int degats;
 
-    Vector2f deplacement;
+    Vector2f velocite;
 
 protected:
 

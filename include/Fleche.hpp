@@ -11,6 +11,8 @@ class Fleche : public EntiteVivante
         virtual ~Fleche();
 
         void deplacer(Vector2f direction);
+        void update();
+        Vector2f getNextPos();
     protected:
 
     private:
