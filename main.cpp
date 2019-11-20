@@ -272,7 +272,6 @@ int main()
             afficherSalles(etage.listeSalles, hConsole);
 
             etage.setJoueur(joueur);
-            //etage.slimeTex = textureSlime;
 
             /*Création de la flèche*/
             fleche = creerFleche(Vector2f(300, 100), Vector2f(50, 50), textureFleche);

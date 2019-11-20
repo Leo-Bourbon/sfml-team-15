@@ -220,6 +220,18 @@ void Etage::update()
 {
     if(this->m_elapsed.asSeconds() >= frametime)
     {
+        for(int i = 0; i < this->listeEntites.size(); i++)
+        {
+            if(dynamic_cast<Ennemi*>(listeEntites[i]))
+            {
+                continue;
+            }
+            if(!(this->salles[this->salleActuelle].estFinie()))
+            {
+                this->salles[this->salleActuelle].setFinie(true);
+            }
+        }
+
 
         checkCollisionsDmg(this->joueur);
         // Do something 60 times a second.
