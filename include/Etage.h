@@ -4,30 +4,58 @@
 #include "Salle.hpp"
 #include "Entite.hpp"
 #include "Joueur.hpp"
+#include "SFML/System/Clock.hpp"
 #include <vector>
+#include "fonctionsEnnemi.hpp"
+#include <typeinfo>
 
 class Etage
 {
-    public:
-        Etage(std::vector<Salle> listeSalles, Joueur& joueur);
-        virtual ~Etage();
+public:
+    Etage(std::vector<Salle> listeSalles, RenderWindow* app, std::map<TypeEntite, Texture*>& listeTex);
+    virtual ~Etage();
 
-        std::vector<Entite> listeEntites;
+    RenderWindow* fen;
 
-        void genererEtage();
-        Salle* salles[6];
+    std::vector<Entite*> listeEntites;
+    std::vector<Salle> listeSalles;
+    std::map<TypeEntite, Texture*> listeTextures;
 
-        void afficherSalle();
-        void afficherEntites();
-        void afficher();
+    Salle salles[6];
+    int salleActuelle;
 
-        void handleInput(sf::Event);
-        void update();
+    void genererEtage();
 
-        Joueur joueur;
+    void setJoueur(Joueur* j);
 
-    protected:
-    private:
+    RectangleShape arrPlan;
+    void afficherSalle(sf::RenderWindow& app);
+    void afficherEntites(sf::RenderWindow& app);
+
+    void setTexture(Texture& tex);
+
+    void handleInput();
+    void update();
+    void afficher();
+
+    bool checkCollisionsX(Joueur* e);
+    bool checkCollisionsY(Joueur* e);
+    void checkCollisionsDmg(Joueur* j);
+
+    void ajouterEntite(Entite* e);
+
+    Joueur* joueur;
+
+    sf::Time GetElapsed();
+    void RestartClock();
+    sf::Time m_elapsed;
+
+protected:
+private:
+    sf::Clock m_clock;
+
+    float frametime;
+    Texture tex;
 };
 
 #endif // ETAGE_H

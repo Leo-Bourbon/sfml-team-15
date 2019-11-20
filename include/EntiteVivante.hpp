@@ -11,7 +11,8 @@ public:
     EntiteVivante(Vector2f position, Vector2f taille, int vieDepart, bool estMort) : Entite(position, taille),
         vie(vieDepart),
         mort(estMort),
-        degats(0) {}
+        degats(0),
+        velocite(0,0) {}
 
     virtual ~EntiteVivante();
     virtual void attaque(EntiteVivante cible, int degats);
@@ -25,13 +26,9 @@ public:
     bool mort;
     int degats;
 
-    Vector2f deplacement;
-
+    Vector2f velocite;
 protected:
-
-
 private:
-
 };
 
 #endif // ENTITEVIVANTE_HPP_INCLUDED

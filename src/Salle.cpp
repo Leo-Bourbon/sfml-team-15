@@ -8,6 +8,7 @@ Salle::Salle()
     portes[3] = NULL;
 
     finie = false;
+    styleArrPlan = 0;
 }
 
 void Salle::setName(char n)

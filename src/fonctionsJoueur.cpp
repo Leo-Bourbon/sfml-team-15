@@ -1,18 +1,26 @@
 #include <SFML/Graphics.hpp>
 #include "fonctionsJoueur.hpp"
 #include "Joueur.hpp"
+#include "Fleche.hpp"
 
-Joueur* creerJoueur(Vector2f position, Vector2f taille, Texture &texturePersBas, Texture &texturePersGauche, Texture &texturePersDroite, Texture &texturePersHaut)
-{
+
+Joueur* creerJoueur(Vector2f position, Vector2f taille, Texture &texturePersBas, Texture &texturePersGauche, Texture &texturePersDroite, Texture &texturePersHaut) {
     Joueur* joueur;
-    joueur = new Joueur(Vector2f(500, 500), Vector2f(200, 200), 100, false);
+    joueur = new Joueur(position, taille, 100, false);
 
     joueur->setTexture(texturePersBas);
     joueur->perso1 = texturePersHaut;
     joueur->perso2 = texturePersGauche;
     joueur->perso3 = texturePersDroite;
     joueur->perso4 = texturePersBas;
-    joueur->setTexture(texturePersHaut);
 
     return joueur;
+}
+
+Fleche* creerFleche(Vector2f position, Vector2f taille, Texture &textureFleche) {
+    Fleche* fleche;
+    fleche = new Fleche(position, taille, 1, false);
+    fleche->setTexture(textureFleche);
+
+    return fleche;
 }

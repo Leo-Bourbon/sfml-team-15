@@ -17,6 +17,7 @@ public:
     bool estFinie();
 
     Salle* portes[4];
+    int styleArrPlan;
 
 protected:
     char name;
