@@ -60,9 +60,12 @@
 		<Unit filename="include/Etage.h" />
 		<Unit filename="include/Fleche.hpp" />
 		<Unit filename="include/Joueur.hpp" />
+		<Unit filename="include/Rocher.hpp" />
 		<Unit filename="include/Salle.hpp" />
 		<Unit filename="include/Slime.hpp" />
+		<Unit filename="include/Trou.h" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />
+		<Unit filename="include/fonctionsEnvironnement.hpp" />
 		<Unit filename="include/fonctionsJoueur.hpp" />
 		<Unit filename="include/functionsImages.hpp" />
 		<Unit filename="include/gestionnaire.h" />
@@ -75,10 +78,13 @@
 		<Unit filename="src/Etage.cpp" />
 		<Unit filename="src/FunctionsImages.cpp" />
 		<Unit filename="src/Joueur.cpp" />
+		<Unit filename="src/Rocher.cpp" />
 		<Unit filename="src/Salle.cpp" />
 		<Unit filename="src/Slime.cpp" />
+		<Unit filename="src/Trou.cpp" />
 		<Unit filename="src/fleche.cpp" />
 		<Unit filename="src/fonctionsEnnemi.cpp" />
+		<Unit filename="src/fonctionsEnvironnement.cpp" />
 		<Unit filename="src/fonctionsJoueur.cpp" />
 		<Unit filename="src/gestionnaire.cpp" />
 		<Extensions>
