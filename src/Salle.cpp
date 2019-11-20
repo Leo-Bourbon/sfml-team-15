@@ -11,6 +11,12 @@ Salle::Salle()
     styleArrPlan = 0;
 }
 
+Salle::~Salle()
+{
+    //dtor
+}
+
+
 void Salle::setName(char n)
 {
     this->name = n;
@@ -21,7 +27,12 @@ char Salle::getName()
     return this->name;
 }
 
-Salle::~Salle()
+bool Salle::estFinie()
 {
-    //dtor
-}
+    return this->finie;
+};
+
+void Salle::setFinie(bool finie)
+{
+    this->finie = finie;
+};

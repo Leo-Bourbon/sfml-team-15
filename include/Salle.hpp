@@ -15,6 +15,7 @@ public:
     char getName();
 
     bool estFinie();
+    void setFinie(bool finie);
 
     Salle* portes[4];
     int styleArrPlan;
