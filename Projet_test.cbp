@@ -64,6 +64,7 @@
 		<Unit filename="include/Salle.hpp" />
 		<Unit filename="include/Slime.hpp" />
 		<Unit filename="include/Stone.hpp" />
+		<Unit filename="include/WarwickBoss.hpp" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />
 		<Unit filename="include/fonctionsEnvironnement.hpp" />
 		<Unit filename="include/fonctionsJoueur.hpp" />
@@ -83,6 +84,7 @@
 		<Unit filename="src/Salle.cpp" />
 		<Unit filename="src/Slime.cpp" />
 		<Unit filename="src/Stone.cpp" />
+		<Unit filename="src/WarwickBoss.cpp" />
 		<Unit filename="src/fleche.cpp" />
 		<Unit filename="src/fonctionsEnnemi.cpp" />
 		<Unit filename="src/fonctionsEnvironnement.cpp" />

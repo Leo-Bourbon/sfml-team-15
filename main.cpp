@@ -97,7 +97,7 @@ int main()
     // variable Jerem
     Ennemi* ennemi;
 
-    /*Texture slime*/
+    /*Texture slime et chauve souris*/
     Texture textureSlime;
     if (!textureSlime.loadFromFile("assets\\slime.png"))
     {
@@ -122,15 +122,15 @@ int main()
     Texture texturePersHaut;
     Texture persoMort; //Texture du perso mort
 
-    if (!texturePersBas.loadFromFile("assets\\perso-4.png"))
+    if (!texturePersBas.loadFromFile("assets\\perso-bas.png"))
         return EXIT_FAILURE;
-    if (!texturePersHaut.loadFromFile("assets\\perso-1.png"))
+    if (!texturePersHaut.loadFromFile("assets\\perso-haut.png"))
         return EXIT_FAILURE;
-    if (!texturePersGauche.loadFromFile("assets\\perso-2.png"))
+    if (!texturePersGauche.loadFromFile("assets\\perso-gauche.png"))
         return EXIT_FAILURE;
-    if (!texturePersDroite.loadFromFile("assets\\perso-3.png"))
+    if (!texturePersDroite.loadFromFile("assets\\perso-droite.png"))
         return EXIT_FAILURE;
-    if (!persoMort.loadFromFile("assets\\slime.png"))
+    if (!persoMort.loadFromFile("assets\\perso-mort.png"))
         return EXIT_FAILURE;
 
     //Texture fleche
