@@ -56,8 +56,31 @@ int main()
     if (!background.loadFromFile("assets\\background.png"))
         return EXIT_FAILURE;
     Texture coeur;
+    if (!coeur.loadFromFile("assets\\listecoeur.png"))
+        return EXIT_FAILURE;
+    Texture potion;
 
-    if (!coeur.loadFromFile("assets\\coeur.png"))
+    if (!potion.loadFromFile("assets\\potion.png"))
+        return EXIT_FAILURE;
+    Texture epee;
+
+    if (!epee.loadFromFile("assets\\epee.png"))
+        return EXIT_FAILURE;
+    Texture info;
+
+    if (!info.loadFromFile("assets\\info.png"))
+        return EXIT_FAILURE;
+    Texture createur;
+
+    if (!createur.loadFromFile("assets\\createur.png"))
+        return EXIT_FAILURE;
+    Texture instruc;
+
+    if (!instruc.loadFromFile("assets\\instruc.png"))
+        return EXIT_FAILURE;
+        Texture gameOver;
+
+    if (!gameOver.loadFromFile("assets\\gameover.png"))
         return EXIT_FAILURE;
 
     std::string debut = "Jouer";
@@ -71,6 +94,7 @@ int main()
     Bouton* b2;
     Bouton* b3;
     Bouton* b4;
+    Bouton* b5;
     Bouton* b7;
 
     std::function<void (Ecran&)> myFunction = [](Ecran& e)
@@ -93,6 +117,15 @@ int main()
     {
         e = Principal;
     };
+
+    RectangleShape backgrou = createForme(Vector2f(0,0),Vector2f(tailleFenetre), background);
+    RectangleShape Infor = createForme(Vector2f(10,900),Vector2f(100,100),info);
+    RectangleShape logot = createForme(Vector2f(-10,-50), Vector2f(1000,500), logo);
+    RectangleShape epeee = createForme(Vector2f(10,(tailleFenetre.y-(tailleFenetre.y*2/3))/2),Vector2f(100,100), epee);
+    RectangleShape potions = createForme(Vector2f(10,(tailleFenetre.y-(tailleFenetre.y*2/3))/2+100),Vector2f(100,100), potion);
+    RectangleShape instruct = createForme(Vector2f(0,0),Vector2f(tailleFenetre), instruc);
+    RectangleShape GameOver = createForme(Vector2f(0,0),Vector2f(tailleFenetre), gameOver);
+
 
     // variable Jerem
     Ennemi* ennemi;
@@ -216,8 +249,10 @@ int main()
                 // Clear screen
                 app.clear();
 
-                createImage(Vector2f(0,0),Vector2f(tailleFenetre), background,app);
-                createImage(Vector2f(-10,-50), Vector2f(1000,500), logo,app);
+                aficherImage(backgrou,app);
+                aficherImage(logot,app);
+                aficherImage(Infor,app);
+                createurJeu(Infor,app,createur);
                 gestionnaire.AfficherBouttons(font,app);
                 gestionnaire.actualiser(app, e);
                 app.display();
@@ -305,6 +340,7 @@ int main()
 
                 if (joueur->estMort()) {
                     joueur->tuer();
+                    e=Fin;
                 }
                 */
                 etage.update();
@@ -318,6 +354,9 @@ int main()
                 ennemi->afficher(app);
                 joueur->afficher(app);
                 */
+                aficherImage(epeee,app);
+                aficherImage(potions,app);
+                updateVie(Vector2f(10,10), Vector2f(tailleFenetre.x * 5/15,tailleFenetre.y*1/15),coeur,app,joueur);
                 app.draw(overlay);
                 etage.afficher();
 
@@ -331,6 +370,9 @@ int main()
             break;
 
         case Fin:
+                        gestionnaire.reset();
+            b3 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.85), tailleBouton, texture, quit);
+            b3->function = myFunction5;
             while (app.isOpen())
             {
                 // Process events
@@ -344,14 +386,16 @@ int main()
 
                 // Clear screen
                 app.clear();
+                aficherImage(GameOver,app);
+                gestionnaire.AfficherBouttons(font,app);
+                gestionnaire.actualiser(app, e);
                 app.display();
             }
             break;
         case Instruction:
             gestionnaire.reset();
-            b3 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/2,tailleFenetre.y*0.85), tailleBouton, texture, quit);
-
-            b3->function = myFunction5;
+            b5 = gestionnaire.CreateBoutton(Vector2f(tailleFenetre.x/1.5f,tailleFenetre.y*0.85), tailleBouton, texture, quit);
+            b5->function = myFunction5;
 
             while (app.isOpen() && e == Instruction)
             {
@@ -375,7 +419,7 @@ int main()
                 // Clear screen
                 app.clear();
 
-                createImage(Vector2f(0,0),Vector2f(tailleFenetre), background,app);
+                aficherImage(instruct,app);
                 gestionnaire.AfficherBouttons(font,app);
                 gestionnaire.actualiser(app, e);
                 app.display();
@@ -407,7 +451,7 @@ int main()
 
                 // Clear screen
                 app.clear();
-                createImage(Vector2f(0,0),Vector2f(tailleFenetre), background, app);
+                aficherImage(backgrou,app);
                 gestionnaire.AfficherBouttons(font,app);
                 gestionnaire.actualiser(app, e);
                 app.display();
