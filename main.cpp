@@ -11,6 +11,7 @@
 #include "functional"
 #include "functionsImages.hpp"
 #include "fonctionsJoueur.hpp"
+#include "fonctionsEnvironnement.hpp"
 
 using namespace sf;
 int main()

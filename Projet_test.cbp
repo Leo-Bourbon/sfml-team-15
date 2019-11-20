@@ -51,6 +51,7 @@
 			<Add directory="C:/SFML/lib" />
 		</Linker>
 		<Unit filename="cb.bmp" />
+		<Unit filename="include/Bat.hpp" />
 		<Unit filename="include/Bouton.h" />
 		<Unit filename="include/CONSTANTES.hpp" />
 		<Unit filename="include/ChargementFichier.hpp" />
@@ -59,17 +60,18 @@
 		<Unit filename="include/EntiteVivante.hpp" />
 		<Unit filename="include/Etage.h" />
 		<Unit filename="include/Fleche.hpp" />
+		<Unit filename="include/Hole.h" />
 		<Unit filename="include/Joueur.hpp" />
-		<Unit filename="include/Rocher.hpp" />
 		<Unit filename="include/Salle.hpp" />
 		<Unit filename="include/Slime.hpp" />
-		<Unit filename="include/Trou.h" />
+		<Unit filename="include/Stone.hpp" />
 		<Unit filename="include/fonctionsEnnemi.hpp" />
 		<Unit filename="include/fonctionsEnvironnement.hpp" />
 		<Unit filename="include/fonctionsJoueur.hpp" />
 		<Unit filename="include/functionsImages.hpp" />
 		<Unit filename="include/gestionnaire.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Bat.cpp" />
 		<Unit filename="src/Bouton.cpp" />
 		<Unit filename="src/ChargementFichier.cpp" />
 		<Unit filename="src/Ennemi.cpp" />
@@ -77,11 +79,11 @@
 		<Unit filename="src/EntiteVivante.cpp" />
 		<Unit filename="src/Etage.cpp" />
 		<Unit filename="src/FunctionsImages.cpp" />
+		<Unit filename="src/Hole.cpp" />
 		<Unit filename="src/Joueur.cpp" />
-		<Unit filename="src/Rocher.cpp" />
 		<Unit filename="src/Salle.cpp" />
 		<Unit filename="src/Slime.cpp" />
-		<Unit filename="src/Trou.cpp" />
+		<Unit filename="src/Stone.cpp" />
 		<Unit filename="src/fleche.cpp" />
 		<Unit filename="src/fonctionsEnnemi.cpp" />
 		<Unit filename="src/fonctionsEnvironnement.cpp" />
