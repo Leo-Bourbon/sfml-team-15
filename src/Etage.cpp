@@ -44,51 +44,74 @@ void Etage::genererEtage()
 
     for(int index = 0; index < 4; index++)
     {
-        for(int j = 0; j < HAUTEUR_CASES_SALLE; j++)
+        if(index != 0)
         {
-            for(int i = 0; i < LARGEUR_CASES_SALLE; i++)
+            salles[index] = listeSalles[rand() % listeSalles.size()];
+        }
+    }
+    genererEntitesDeSalle(salles[salleActuelle]);
+};
+
+void Etage::genererEntitesDeSalle(Salle salle)
+{
+    for(int j = 0; j < HAUTEUR_CASES_SALLE; j++)
+    {
+        for(int i = 0; i < LARGEUR_CASES_SALLE; i++)
+        {
+            Entite* e;
+
+            float x = arrPlan.getPosition().x + ((i * this->arrPlan.getSize().x) / LARGEUR_CASES_SALLE);
+            float y = arrPlan.getPosition().y + this->joueur->getTaille().y + ((j * arrPlan.getSize().y) / HAUTEUR_CASES_SALLE);
+
+            //printf("%i\n", salles[0].carte[j][i]);
+            switch(salle.carte[j][i])
             {
-                Entite* e;
-
-                float x = arrPlan.getPosition().x + ((i * this->arrPlan.getSize().x) / LARGEUR_CASES_SALLE);
-                float y = arrPlan.getPosition().y + this->joueur->getTaille().y + ((j * arrPlan.getSize().y) / HAUTEUR_CASES_SALLE);
-
-                //printf("%i\n", salles[0].carte[j][i]);
-                switch(salles[index].carte[j][i])
-                {
-                case Sol:
-                    break;
-                case Personnage:
-                    printf("i=%i j=%i\n", i, j);
-                    this->joueur->setPosition(Vector2f(x, y));
-                    break;
-                case Rocher:
-                    break;
-                case Trou:
-                    break;
-                case CSouris:
-                    break;
-                case Slimy:
-                    e = creerEnnemi(Vector2f(0,0), Vector2f(56, 42), *listeTextures[Slimy], Slimy);
-                    ajouterEntite(e);
-                    e->setPosition(Vector2f(x, y));
-                    break;
-                case Item:
-                    break;
-                default:
-                    break;
-                }
+            case Sol:
+                break;
+            case Personnage:
+                printf("i=%i j=%i\n", i, j);
+                this->joueur->setPosition(Vector2f(x, y));
+                break;
+            case Rocher:
+                e = creerEnvironnement(Vector2f(0,0), Vector2f(56, 42), *listeTextures[Rocher], Rocher);
+                ajouterEntite(e);
+                e->setPosition(Vector2f(x, y));
+                break;
+            case Trou:
+                e = creerEnvironnement(Vector2f(0,0), Vector2f(56, 42), *listeTextures[Trou], Trou);
+                ajouterEntite(e);
+                e->setPosition(Vector2f(x, y));
+                break;
+            case CSouris:
+                e = creerEnnemi(Vector2f(0,0), Vector2f(56, 42), *listeTextures[CSouris], CSouris);
+                ajouterEntite(e);
+                e->setPosition(Vector2f(x, y));
+                break;
+            case Slimy:
+                e = creerEnnemi(Vector2f(0,0), Vector2f(56, 42), *listeTextures[Slimy], Slimy);
+                ajouterEntite(e);
+                e->setPosition(Vector2f(x, y));
+                break;
+            case Item:
+                break;
+            default:
+                break;
             }
         }
     }
-};
-
-Salle generer
+}
 
 void Etage::ajouterEntite(Entite* e)
 {
     this->listeEntites.push_back(e);
-}
+};
+
+void Etage::changerSalle(int salle)
+{
+    this->salleActuelle = salle;
+    listeEntites.clear();
+    genererEntitesDeSalle(salles[salleActuelle]);
+};
 
 void Etage::afficherSalle(sf::RenderWindow& app)
 {

@@ -106,7 +106,7 @@ int main()
 
     /*Texture chauve souris*/
     Texture textureCSouris;
-    if (!textureSlime.loadFromFile("assets\\csouris.png"))
+    if (!textureCSouris.loadFromFile("assets\\csouris.png"))
     {
         //return EXIT_FAILURE;
     }
@@ -153,13 +153,13 @@ int main()
     Texture textureTrou;
     if (!textureTrou.loadFromFile("assets\\trou.png"))
     {
-        //return EXIT_FAILURE;
+        return EXIT_FAILURE;
     }
 
     Texture textureRocher;
-    if (!textureTrou.loadFromFile("assets\\rocher.png"))
+    if (!textureRocher.loadFromFile("assets\\rocher.png"))
     {
-        //return EXIT_FAILURE;
+        return EXIT_FAILURE;
     }
 
     RectangleShape overlay(Vector2f(app.getSize().x, app.getSize().y));
@@ -171,9 +171,7 @@ int main()
         {Rocher, &textureRocher},
         {CSouris, &textureCSouris},
         {Rocher, &textureRocher},
-        {CSouris, &textureCSouris},
-        {Slimy, &textureSlime},
-
+        {Slimy, &textureSlime}
     };
 
     Etage etage(lireSalles("assets\\liste_salles.txt"), &app, listeTextures);

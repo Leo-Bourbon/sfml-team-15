@@ -1,26 +1,29 @@
 #include "ChargementFichier.hpp"
 #include "Salle.hpp"
 
-std::map<char, TypeEntite> charToType( {
+std::map<char, TypeEntite> charToType(
+{
     {'-', TypeEntite::Sol},
     {'J', TypeEntite::Personnage},
     {'R', TypeEntite::Rocher},
+    {'T', TypeEntite::Trou},
     {'C', TypeEntite::CSouris},
     {'S', TypeEntite::Slimy},
     {'I', TypeEntite::Item}
-}
-                                     );
+});
 
 using namespace std;
 
-std::vector<Salle> lireSalles(std::string fichierSalles) {
+std::vector<Salle> lireSalles(std::string fichierSalles)
+{
     std::vector<Salle> listeSalles;
 
     ifstream fichier;
 
     fichier.open(fichierSalles.c_str());
 
-    if(!fichier) {
+    if(!fichier)
+    {
         printf("Erreur");
         return listeSalles;
     }
@@ -31,7 +34,8 @@ std::vector<Salle> lireSalles(std::string fichierSalles) {
     printf("Nombre de salles :%d\n", nbSalles);
 
 
-    for(int i = 0; i < nbSalles; i++) {
+    for(int i = 0; i < nbSalles; i++)
+    {
         Salle salle;
         //printf("Salle num : %i\n", i);
 
@@ -48,10 +52,12 @@ std::vector<Salle> lireSalles(std::string fichierSalles) {
         char c;
 
         c = fichier.get();
-        while (c != '*') {
+        while (c != '*')
+        {
             TypeEntite t;
 
-            if (c == '\n') {
+            if (c == '\n')
+            {
                 x = 0;
                 y += 1;
 
@@ -73,13 +79,18 @@ std::vector<Salle> lireSalles(std::string fichierSalles) {
     fichier.close();
 }
 
-void afficherSalles(std::vector<Salle> salles, HANDLE hConsole) {
-    for (int index = 0; index < salles.size(); index++) {
+void afficherSalles(std::vector<Salle> salles, HANDLE hConsole)
+{
+    for (int index = 0; index < salles.size(); index++)
+    {
         printf("Salle %c\n", salles[index].getName());
-        for(int j = 0; j < HAUTEUR_CASES_SALLE; j++) {
-            for(int i = 0; i < LARGEUR_CASES_SALLE; i++) {
+        for(int j = 0; j < HAUTEUR_CASES_SALLE; j++)
+        {
+            for(int i = 0; i < LARGEUR_CASES_SALLE; i++)
+            {
                 printf("|");
-                switch(salles[index].carte[j][i]) {
+                switch(salles[index].carte[j][i])
+                {
                 case Personnage:
                     SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | BACKGROUND_GREEN);
                     break;

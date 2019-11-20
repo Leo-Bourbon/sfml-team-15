@@ -7,6 +7,7 @@
 #include "SFML/System/Clock.hpp"
 #include <vector>
 #include "fonctionsEnnemi.hpp"
+#include "fonctionsEnvironnement.hpp"
 #include <typeinfo>
 
 class Etage
@@ -24,7 +25,8 @@ public:
     Salle salles[6];
     int salleActuelle;
 
-    Salle genererSalle(int index);
+    void changerSalle(int salle);
+    void genererEntitesDeSalle(Salle salle);
 
     void genererEtage();
 
