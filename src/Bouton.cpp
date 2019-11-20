@@ -35,14 +35,12 @@ Bouton::Bouton(Vector2f pos, Vector2f taille, Texture& arr, std::string& label)
 
 
 
+
     text.setCharacterSize(30);
     text.setString(contenue);
     text.setColor(Color::White);
-    //text.setOrigin(text.getGlobalBounds().width/2,text.getGlobalBounds().height/2);
-    sf::FloatRect textRect = text.getLocalBounds();
-    text.setOrigin(textRect.left + textRect.width/2.0f,
-                   textRect.top  + textRect.height/2.0f);
-    text.setPosition(position.x, position.y);
+    text.setOrigin(taille.x/5.5,taille.y/5.5);
+    text.setPosition(position);
 }
 void Bouton::AfficherBouton(sf::Font& Police, sf::RenderWindow& fen)
 {
