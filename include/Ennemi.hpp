@@ -11,6 +11,7 @@ public:
     virtual ~Ennemi();
 
     Texture slime;
+    Texture bat;
 
 protected:
 

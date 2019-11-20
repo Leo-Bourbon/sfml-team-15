@@ -11,7 +11,9 @@
 #include "functional"
 #include "functionsImages.hpp"
 #include "fonctionsJoueur.hpp"
+
 #include "Etage.h"
+#include "fonctionsEnvironnement.hpp"
 #include "ChargementFichier.hpp"
 
 using namespace sf;
