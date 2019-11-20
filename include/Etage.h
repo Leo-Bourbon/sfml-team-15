@@ -24,6 +24,8 @@ public:
     Salle salles[6];
     int salleActuelle;
 
+    Salle genererSalle(int index);
+
     void genererEtage();
 
     void setJoueur(Joueur* j);

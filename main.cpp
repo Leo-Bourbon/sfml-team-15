@@ -15,6 +15,7 @@
 #include "Etage.h"
 #include "fonctionsEnvironnement.hpp"
 #include "ChargementFichier.hpp"
+#include "time.h"
 
 using namespace sf;
 int main()
@@ -22,6 +23,8 @@ int main()
 
     HANDLE  hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    srand(time(NULL));
 
     Ecran e = Principal;
 

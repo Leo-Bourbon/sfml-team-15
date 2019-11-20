@@ -1,6 +1,7 @@
 #include "Etage.h"
 
-Etage::Etage(std::vector<Salle> listeSalles, RenderWindow* app, std::map<TypeEntite, Texture*>& listeTex) {
+Etage::Etage(std::vector<Salle> listeSalles, RenderWindow* app, std::map<TypeEntite, Texture*>& listeTex)
+{
     this->listeSalles = listeSalles;
     this->listeTextures = listeTex;
 
@@ -15,83 +16,102 @@ Etage::Etage(std::vector<Salle> listeSalles, RenderWindow* app, std::map<TypeEnt
     salleActuelle = 0;
 }
 
-Etage::~Etage() {
+Etage::~Etage()
+{
     //dtor
 }
 
-void Etage::setJoueur(Joueur* j) {
+void Etage::setJoueur(Joueur* j)
+{
     this->joueur = j;
 
     genererEtage();
 }
 
-void Etage::setTexture(Texture& tex) {
+void Etage::setTexture(Texture& tex)
+{
     this->arrPlan.setTexture(&tex);
 }
 
-void Etage::handleInput() {
+void Etage::handleInput()
+{
     this->joueur->deplacer();
 };
 
-void Etage::genererEtage() {
+void Etage::genererEtage()
+{
     salles[0] = listeSalles[0];
 
-    for(int j = 0; j < HAUTEUR_CASES_SALLE; j++) {
-        for(int i = 0; i < LARGEUR_CASES_SALLE; i++) {
-            Entite* e;
+    for(int index = 0; index < 4; index++)
+    {
+        for(int j = 0; j < HAUTEUR_CASES_SALLE; j++)
+        {
+            for(int i = 0; i < LARGEUR_CASES_SALLE; i++)
+            {
+                Entite* e;
 
-            float x = arrPlan.getPosition().x + ((i * this->arrPlan.getSize().x) / LARGEUR_CASES_SALLE);
-            float y = arrPlan.getPosition().y + this->joueur->getTaille().y + ((j * arrPlan.getSize().y) / HAUTEUR_CASES_SALLE);
+                float x = arrPlan.getPosition().x + ((i * this->arrPlan.getSize().x) / LARGEUR_CASES_SALLE);
+                float y = arrPlan.getPosition().y + this->joueur->getTaille().y + ((j * arrPlan.getSize().y) / HAUTEUR_CASES_SALLE);
 
-            //printf("%i\n", salles[0].carte[j][i]);
-            switch(salles[0].carte[j][i]) {
-            case Sol:
-                break;
-            case Personnage:
-                printf("i=%i j=%i\n", i, j);
-                this->joueur->setPosition(Vector2f(x, y));
-                break;
-            case Rocher:
-                break;
-            case Trou:
-                break;
-            case CSouris:
-                break;
-            case Slimy:
-                e = creerEnnemi(Vector2f(0,0), Vector2f(56, 42), *listeTextures[Slimy], Slimy);
-                ajouterEntite(e);
-                e->setPosition(Vector2f(x, y));
-                break;
-            case Item:
-                break;
-            default:
-                break;
+                //printf("%i\n", salles[0].carte[j][i]);
+                switch(salles[index].carte[j][i])
+                {
+                case Sol:
+                    break;
+                case Personnage:
+                    printf("i=%i j=%i\n", i, j);
+                    this->joueur->setPosition(Vector2f(x, y));
+                    break;
+                case Rocher:
+                    break;
+                case Trou:
+                    break;
+                case CSouris:
+                    break;
+                case Slimy:
+                    e = creerEnnemi(Vector2f(0,0), Vector2f(56, 42), *listeTextures[Slimy], Slimy);
+                    ajouterEntite(e);
+                    e->setPosition(Vector2f(x, y));
+                    break;
+                case Item:
+                    break;
+                default:
+                    break;
+                }
             }
         }
     }
 };
 
-void Etage::ajouterEntite(Entite* e) {
+Salle generer
+
+void Etage::ajouterEntite(Entite* e)
+{
     this->listeEntites.push_back(e);
 }
 
-void Etage::afficherSalle(sf::RenderWindow& app) {
+void Etage::afficherSalle(sf::RenderWindow& app)
+{
     app.draw(this->arrPlan);
 };
 
-void Etage::afficherEntites(sf::RenderWindow& app) {
-    for(int i = 0; i < this->listeEntites.size(); i++) {
+void Etage::afficherEntites(sf::RenderWindow& app)
+{
+    for(int i = 0; i < this->listeEntites.size(); i++)
+    {
         listeEntites[i]->afficher(app);
     }
 };
 
-void Etage::afficher() {
+void Etage::afficher()
+{
     afficherSalle((*fen));
     afficherEntites((*fen));
     joueur->afficher((*fen));
 };
 
-bool Etage::checkCollisionsX(Joueur* e) {
+bool Etage::checkCollisionsX(Joueur* e)
+{
     sf::FloatRect curPos(e->forme.getGlobalBounds());
     //printf("Current pos : %f %f %f %f\n", curPos.left, curPos.top, curPos.width, curPos.height);
 
@@ -101,18 +121,21 @@ bool Etage::checkCollisionsX(Joueur* e) {
     if(nextPos.left < ((fen->getSize().x * 1/4)/2) + (arrPlan.getGlobalBounds().width * 1/9 ) || nextPos.left + nextPos.width > (fen->getSize().x * 7/8) - (arrPlan.getGlobalBounds().width * 1/9 ))
         return false;
 
-    for(int i = 0; i < this->listeEntites.size(); i++) {
+    for(int i = 0; i < this->listeEntites.size(); i++)
+    {
         if(listeEntites[i] == e)
             continue;
 
-        if(nextPos.intersects(listeEntites[i]->forme.getGlobalBounds())) {
+        if(nextPos.intersects(listeEntites[i]->forme.getGlobalBounds()))
+        {
             return false;
         }
     }
     return true;
 }
 
-bool Etage::checkCollisionsY(Joueur* j) {
+bool Etage::checkCollisionsY(Joueur* j)
+{
     sf::FloatRect curPos(j->forme.getGlobalBounds());
     //printf("Current pos : %f %f %f %f\n", curPos.left, curPos.top, curPos.width, curPos.height);
 
@@ -122,28 +145,33 @@ bool Etage::checkCollisionsY(Joueur* j) {
     if(nextPos.top < ((fen->getSize().y * 1/6)/2) + (arrPlan.getGlobalBounds().height * 1/6 ) || nextPos.top + nextPos.height > (fen->getSize().y * 5/6) - (arrPlan.getGlobalBounds().height * 1/6 ))
         return false;
 
-    for(int i = 0; i < this->listeEntites.size(); i++) {
+    for(int i = 0; i < this->listeEntites.size(); i++)
+    {
         if(listeEntites[i] == j)
             continue;
 
-        if(nextPos.intersects(listeEntites[i]->forme.getGlobalBounds())) {
+        if(nextPos.intersects(listeEntites[i]->forme.getGlobalBounds()))
+        {
             return false;
         }
     }
     return true;
 }
 
-void Etage::checkCollisionsDmg(Joueur* j) {
+void Etage::checkCollisionsDmg(Joueur* j)
+{
     sf::FloatRect curPos(j->forme.getGlobalBounds());
     sf::FloatRect hitBox(curPos.left - 10, curPos.top - 10, curPos.width + 10, curPos.height + 10);
 
-    for(int i = 0; i < this->listeEntites.size(); i++) {
+    for(int i = 0; i < this->listeEntites.size(); i++)
+    {
         if(listeEntites[i] == j)
             continue;
 
         printf("%s", typeid(*listeEntites[i]).name());
 
-        if(dynamic_cast<Ennemi*>(listeEntites[i])) {
+        if(dynamic_cast<Ennemi*>(listeEntites[i]))
+        {
             printf("Cast\n");
             sf::FloatRect otherPos(listeEntites[i]->forme.getGlobalBounds());
 
@@ -158,8 +186,10 @@ void Etage::checkCollisionsDmg(Joueur* j) {
     }
 }
 
-void Etage::update() {
-    if(this->m_elapsed.asSeconds() >= frametime) {
+void Etage::update()
+{
+    if(this->m_elapsed.asSeconds() >= frametime)
+    {
 
         checkCollisionsDmg(this->joueur);
         // Do something 60 times a second.
@@ -169,10 +199,12 @@ void Etage::update() {
     }
 };
 
-sf::Time Etage::GetElapsed() {
+sf::Time Etage::GetElapsed()
+{
     return m_elapsed;
 }
 
-void Etage::RestartClock() {
+void Etage::RestartClock()
+{
     m_elapsed += m_clock.restart();
 }
